@@ -1,5 +1,5 @@
 //Ejercicio 1
-function Ejercicio_1() { 
+function Tabla() { 
     document.write("<h3>Ejercicio 1</h3>");
 
     let num = prompt("Numero: ");
@@ -10,43 +10,36 @@ function Ejercicio_1() {
         document.write("<td>" + i*i*i + "</td></tr>");
     }
     document.write("</table>");
+    document.write("<br>");
 }
 
 //Ejercicio 2
-function Ejercicio_2() {
-    let num1 = Math.floor(Math.random()*301);
-    let num2 = Math.floor(Math.random()*301);
-    let cont = 0;
-    let parar = false;
+function Suma_aleatoria() {
+    document.write("<h3>Ejercicio 2</h3>");
+
+    let num1 = Math.floor(Math.random()*101);
+    let num2 = Math.floor(Math.random()*101);
+    let tiempo_inicial = new Date().getTime();
     let suma = prompt("¿Cuál es la suma entre " + num1 + " y " + num2 + "?");
-    /*while(parar==false){
-        function tiempo(){
-            cont++;
-        } setTimeout(tiempo, 1000);
-        if(suma == num1+num2){
-            window.alert("Respuesta correcta!");
-            parar = true;
-        } else {
-        window.alert("Respuesta incorrecta :(, tiempo tardado: " + cont);
-        parar = true
-        }
-        
-    }*/
-    console.time("con");
-if(suma == num1+num2){
-    window.alert("Respuesta correcta!");
-    console.timeEnd("con");
-    parar = true;
-} else {
-    window.alert("Respuesta incorrecta :(, tiempo tardado: " + cont);
-    console.timeEnd("con");
-    parar = true
-    }
- 
+    let tiempo_final = new Date().getTime();
+    let tiempo = tiempo_final - tiempo_inicial;
+
+    if (suma == num1+num2){
+        document.write("Respuesta correcta!!!");
+        window.alert("Respuesta correcta!");              
+    } else {
+        document.write("Respuesta incorrecta :(");
+        window.alert("Respuesta incorrecta :(");
+    }   
+
+    document.write("<div>Tiempo tardado: " + tiempo/1000 + "s</div>");
+    document.write("<br>");
 }
 
 //Ejercicio 3
-function Ejercicio_3() {
+function Contador_numeros() {
+    document.write("<h3>Ejercicio 3</h3>");
+
     let arr = prompt("Inserte arreglo separado por espacios");
     let num = arr.split(" ");
     let pos = 0;
@@ -66,10 +59,17 @@ function Ejercicio_3() {
     console.log("Positivos: " + pos);
     console.log("Negativos: " + neg);
     console.log("Ceros: " + cero);
+
+    document.write("<div>Positivos: " + pos + "</div>");
+    document.write("<div>Negativos: " + neg + "</div>");
+    document.write("<div>Ceros: " + cero + "</div>");
+    document.write("<br>");
 }
 
 //Ejercicio 4
 function Promedios() {
+    document.write("<h3>Ejercicio 4</h3>");
+
     let arr = prompt("Inserte arreglo de numeros separados por espacios para sacar promedio:");
     let num = arr.split(" ");
     let sum = 0;
@@ -77,21 +77,27 @@ function Promedios() {
         sum += parseInt(num[i], 10);
     }
     console.log("Promedio: " + sum/num.length);
+    document.write("Promedio: " + sum/num.length);
+    document.write("<br>");
 }
 
 //Ejercicio 5
 function Inverso() {
+    document.write("<h3>Ejercicio 5</h3>");
+    
     let num = prompt("Número:");
     let inv = "";
     for (let i = num.length-1; i>=0; i--){
         inv += num[i];
     }
     console.log("Número invertido: " + inv);
+    document.write("Número invertido: " + inv);
+    document.write("<br>");
 }
 
 
-//Ejercicio_1();
-Ejercicio_2();
-//Ejercicio_3();
-//Promedios();
-//Inverso();
+Tabla();
+Suma_aleatoria();
+Contador_numeros();
+Promedios();
+Inverso();
