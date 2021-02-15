@@ -2,7 +2,7 @@
 function Tabla() { 
     document.write("<h3>Ejercicio 1</h3>");
 
-    let num = prompt("Numero: ");
+    let num = prompt("Número: ");
     document.write("<table> <tr> <th> n </th> <th> n^2 </th> <th> n^3 </th> </tr>");
     for (let i=1; i<=num; i++){
         document.write("<tr><td>" + i + "</td>");
@@ -40,7 +40,7 @@ function Suma_aleatoria() {
 function Contador_numeros() {
     document.write("<h3>Ejercicio 3</h3>");
 
-    let arr = prompt("Inserte arreglo separado por espacios");
+    let arr = prompt("Inserte arreglo separado por espacios para contar positivos, negativos y ceros");
     let num = arr.split(" ");
     let pos = 0;
     let neg = 0;
@@ -85,7 +85,7 @@ function Promedios() {
 function Inverso() {
     document.write("<h3>Ejercicio 5</h3>");
     
-    let num = prompt("Número:");
+    let num = prompt("Número para invertir");
     let inv = "";
     for (let i = num.length-1; i>=0; i--){
         inv += num[i];
