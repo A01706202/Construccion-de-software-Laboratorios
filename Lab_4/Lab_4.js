@@ -14,25 +14,84 @@ function Ejercicio_1() {
 
 //Ejercicio 2
 function Ejercicio_2() {
-    document.write("<h3>Ejercicio 2</h3>");
-    num1 = 3;
-    num2 = 2;
-    let tiempo = new Date();
-    tiempo.setSeconds(0);
+    let num1 = Math.floor(Math.random()*301);
+    let num2 = Math.floor(Math.random()*301);
+    let cont = 0;
+    let parar = false;
     let suma = prompt("¿Cuál es la suma entre " + num1 + " y " + num2 + "?");
-    if(suma == num1+num2){
-        document.write("Respuesta correcta!");
-    } else {
-        document.write("Respuesta incorrecta :(");
+    /*while(parar==false){
+        function tiempo(){
+            cont++;
+        } setTimeout(tiempo, 1000);
+        if(suma == num1+num2){
+            window.alert("Respuesta correcta!");
+            parar = true;
+        } else {
+        window.alert("Respuesta incorrecta :(, tiempo tardado: " + cont);
+        parar = true
+        }
+        
+    }*/
+    console.time("con");
+if(suma == num1+num2){
+    window.alert("Respuesta correcta!");
+    console.timeEnd("con");
+    parar = true;
+} else {
+    window.alert("Respuesta incorrecta :(, tiempo tardado: " + cont);
+    console.timeEnd("con");
+    parar = true
     }
-    document.write("<div>Tiempo en contestar: " + tiempo.getSeconds + " s</div>");
+ 
 }
 
 //Ejercicio 3
-/*
-function Ejercicio_3 {
-    
+function Ejercicio_3() {
+    let arr = prompt("Inserte arreglo separado por espacios");
+    let num = arr.split(" ");
+    let pos = 0;
+    let neg = 0;
+    let cero = 0;
+
+    for(let i=0; i<num.length; i++){
+
+        if(num[i]==0){
+            cero++;
+        } else if (num[i]<0){
+            neg++;
+        } else {
+            pos++;
+        }
+    }
+    console.log("Positivos: " + pos);
+    console.log("Negativos: " + neg);
+    console.log("Ceros: " + cero);
 }
-*/
+
+//Ejercicio 4
+function Promedios() {
+    let arr = prompt("Inserte arreglo de numeros separados por espacios para sacar promedio:");
+    let num = arr.split(" ");
+    let sum = 0;
+    for(let i=0; i<num.length; i++){       
+        sum += parseInt(num[i], 10);
+    }
+    console.log("Promedio: " + sum/num.length);
+}
+
+//Ejercicio 5
+function Inverso() {
+    let num = prompt("Número:");
+    let inv = "";
+    for (let i = num.length-1; i>=0; i--){
+        inv += num[i];
+    }
+    console.log("Número invertido: " + inv);
+}
+
+
 //Ejercicio_1();
 Ejercicio_2();
+//Ejercicio_3();
+//Promedios();
+//Inverso();
