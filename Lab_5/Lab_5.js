@@ -12,15 +12,13 @@ password2.onkeyup = () => {
 
 function validar_password() {
     let boton = document.getElementById("Validacion");
-    /*if ((valor_password || valor_password2) == null){
-        alert("Llene los campos por favor");
-    } else {*/
+
         if (valor_password == valor_password2){
-            console.log("yes")
             window.alert("Stonks");
+            document.getElementById("pass").classList.add("ocultar");
+            document.getElementById("tienda");
         } else {
             window.alert("Las contraseñas no coinciden");
         }
-   // }
     
 }
