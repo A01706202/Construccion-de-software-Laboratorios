@@ -1,4 +1,5 @@
 document.getElementById("preguntas").classList.add("ocultar");
+document.getElementById("oculto").classList.add("ocultar");
 
 let password = document.getElementById("password");
 password.onkeyup = () => {  
@@ -14,16 +15,21 @@ function validar_password() {
     let boton = document.getElementById("Validacion");
     
 
-        if (valor_password == valor_password2){
+        if ((valor_password || valor_password2) == ""){
+            window.alert("Llene los campos por favor");
+
+        } else if (valor_password == valor_password2){
             window.alert("¡Contraseña validada!");
             document.getElementById("pass").classList.add("ocultar");
+            document.getElementById("oculto").classList.remove("ocultar");
             document.getElementById("preguntas").classList.remove("ocultar");
-            let album1 = document.getElementById("tienda");
-            album1.innerHTML = '<img alt="Yung Bae" src="https://www.google.com.mx/url?sa=i&url=https%3A%2F%2Fwww.discogs.com%2FYung-Bae-Bae%2Frelease%2F13848176&psig=AOvVaw1fhwtWMzbew3U5rcaCNGZR&ust=1613631332595000&source=images&cd=vfe&ved=0CAIQjRxqFwoTCKj0lqar8O4CFQAAAAAdAAAAABAO">'
-            
+            let titulo = document.getElementById("titulo");
+            titulo.innerHTML = "Venta de discos";
+            let foto_album1 = document.getElementById("imagen1");
+            foto_album1.innerHTML = '<img alt="Yung Bae" src="https://img.discogs.com/k9M-1kjaRht06UcnK1A2g9IiUvU=/fit-in/300x300/filters:strip_icc():format(jpeg):mode_rgb():quality(40)/discogs-images/R-6114016-1411407238-1545.jpeg.jpg">';
             
         } else {
-            window.alert("Las contraseñas no coinciden");
+            window.alert("Contraseña registrada");
         }
     
 }
