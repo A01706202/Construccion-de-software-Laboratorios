@@ -1,16 +1,76 @@
+.button {
+    background-color: rgb(131, 56, 207);
+    color: white;
+}
 
 .formulario {
-    font-family: Arial, Helvetica, sans-serif;
+    color:rgb(19, 26, 26);
+    text-align: center;
+    border: 1px solid grey;
+    position: relative;
+    width: 30%;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .ocultar {
     display: none;
 }
 
-.mostrar {
-    display: visible;
+
+.formato-titulo {
+    color:rgb(32, 31, 31);
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: center;
+    position: sticky;
 }
 
 .formato {
-    display: none;
+    color: green;
+}
+
+body {
+    margin: 0 auto;
+    max-width: 70em;
+    font-family: Arial, Helvetica, sans-serif;
+    line-height: 1.5;
+    padding: 2em 1em;
+    color:rgb(151, 0, 96);
+}
+
+h1 {
+    color:midnightblue;
+}
+
+h2 {
+    color:rgb(206, 86, 65);
+}
+
+h3, h4 {
+    color:darkslateblue; 
+    margin-top: 1em;
+    margin-bottom: 1em; 
+} 
+
+strong {
+    color:teal;
+}
+
+code, 
+pre {
+    background: rgb(240, 198, 240);
+}
+
+code {
+    vertical-align: text-bottom;
+    text-align: left;
+    color: rgb(19, 26, 26);
+}
+
+pre {
+    padding: 1em;
+}
+
+a {
+    color: rgb(93, 106, 119);
 }
