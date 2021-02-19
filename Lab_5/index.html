@@ -29,29 +29,29 @@
             </div>
 
             <div id="tienda">
-                <div id="producto1" class="formato-tienda">
-                    <div id="imagen1"></div>
-                    <div id="informacion1" class="contenido"></div>
-                    <input id="no_unidades1" type="number" class="pedido">
-                </div>
-                <div id="producto2" class="formato-tienda">
-                    <div id="imagen2"></div>
-                    <div id="informacion2" class="contenido"></div>
-                    <input id="no_unidades2" type="number" class="pedido">
-                </div>
-                <div id="producto3" class="formato-tienda">
-                    <div id="imagen2"></div>
-                    <div id="informacion3" class="contenido"></div>
-                    <input id="no_unidades3" type="number" class="pedido">
-                </div>
+                <table>
+                    <tr>
+                        <td><div id="imagen1"></div></td>
+                        <td><div id="informacion1" class="contenido"></div></td>
+                        <td>Unidades queridas<br><input id="no_unidades1" type="number" class="pedido"></td>
+                    </tr>
+                    <tr>
+                        <td><div id="imagen2"></div></td>
+                        <td><div id="informacion2" class="contenido"></div></td>
+                        <td>Unidades queridas<br><input id="no_unidades2" type="number" class="pedido"></td>
+                    </tr>
+                    <tr>
+                        <td><div id="imagen3"></div></td>
+                        <td><div id="informacion3" class="contenido"></div></td>
+                        <td>Unidades queridas<br><input id="no_unidades3" type="number" class="pedido"></td>
+                    </tr>
+                </table>
                 <br><br>
                 <button id="pagar" class="pago" onclick="hacer_pago()">Pagar</button>
+                <br><br>
+                <div id="total"></div>
             </div>
-
-            
-
-            
-        
+      
         </main>
         <footer>
             <P id="preguntas">Preguntas a contestar del Laboratorio <a href="preguntas.html">aquí</a></P>
