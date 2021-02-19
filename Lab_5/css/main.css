@@ -48,9 +48,15 @@
 .pago {
     background-color: midnightblue;
     color: white;
+}
+
+.pago-cuadro {
+    color:rgb(14, 80, 80);
     font-family: Arial, Helvetica, sans-serif;
     text-align: center;
-    width: 10%;
+    border: 1px solid rgb(56, 56, 56);
+    position: relative;
+    width: 30%;
     margin-left: auto;
     margin-right: auto;
 }

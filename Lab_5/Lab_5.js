@@ -58,6 +58,6 @@ function hacer_pago(){
     let precio = document.getElementById("total");
     let sin_IVA = precio1*230 + precio2*205 + precio3*220;
     let IVA = sin_IVA*.16;
-    precio.innerHTML = "Discos: " + sin_IVA + "<br>IVA: " + IVA + "<br>Total: " + sin_IVA+IVA;
+    precio.innerHTML = "Discos: " + sin_IVA + "<br>IVA: " + IVA + "<br>Total: " + Math.round(sin_IVA+IVA);
 
 }
