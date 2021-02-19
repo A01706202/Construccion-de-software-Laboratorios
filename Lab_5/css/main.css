@@ -31,7 +31,6 @@
     display: flex;
 }
 
-
 .contenido {
     padding: 15px;
     margin: 15px;
@@ -50,6 +49,7 @@
     background-color: midnightblue;
     color: white;
     text-align: center;
+    width: 10%;
 }
 
 body {

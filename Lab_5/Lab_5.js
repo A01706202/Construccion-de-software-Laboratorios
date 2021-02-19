@@ -30,11 +30,15 @@ function validar_password() {
 
             let foto_album1 = document.getElementById("imagen1");
             foto_album1.innerHTML = '<img alt="Bae" src="https://img.discogs.com/k9M-1kjaRht06UcnK1A2g9IiUvU=/fit-in/300x300/filters:strip_icc():format(jpeg):mode_rgb():quality(40)/discogs-images/R-6114016-1411407238-1545.jpeg.jpg">';
-            let descripcion1 = document.getElementsByName("informacion1");
-            descripcion1.innerHTML = "<h1>Bae</h1>Artista: Yung Bae <br>Subgénero: Future Funk <br>Precio: 230$";
+            let descripcion1 = document.getElementById("informacion1");
+            descripcion1.innerHTML = "<h1>Bae</h1>Artista: Yung Bae <br>Subgénero: Future Funk <br>Precio: 230$<br><br>";
 
             let foto_album2 = document.getElementById("imagen2");
-            foto_album2.innerHTML = '<img alt=Blank_Banshee_0 src="https://img.discogs.com/V39Hy8EZdw8hmFO_AgB444uZUFw=/fit-in/600x600/filters:strip_icc():format(jpeg):mode_rgb():quality(90)/discogs-images/R-9226413-1477003314-5796.jpeg.jpg">';
+            foto_album2.innerHTML = '<img alt=Blank_Banshee_0 src="img/blankbanshee.png">';
+            let descripcion2 = document.getElementById("informacion2");
+            descripcion2.innerHTML = "<h1>Blank Banshee 0</h1>Artista: Blank Banshee <br>Subgénero: Vaportrap <br>Precio: 205$<br><br>";
+
+
             
         } else {
             window.alert("Las contraseñas no coinciden");
