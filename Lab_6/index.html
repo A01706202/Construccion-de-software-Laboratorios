@@ -4,24 +4,29 @@
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width-device-with, initial-scale=1.0">
+        
+        <link href="css/bulma.css" rel="stylesheet">
         <link href="css/main.css" rel="stylesheet">
-        <title>Laboratorio 1</title>
+        <title>Laboratorio 6</title>
     </head>
     <body>
         <header>
-            <ul><h1>Laboratorio 1</h1></ul>
+            <ul><h1 class="title is-1 color-titulo">Laboratorio 6</h1></ul>
         </header>
         <main>
-            <div>Michelle Aylin Calzada Montes</div>
-            <div>A01706202</div>
-            <div>ITC</div>
+            <div class="box has-text-link-dark">
+                <div>Michelle Aylin Calzada Montes</div>
+                <div>A01706202</div>
+                <div>ITC</div>
+            </div>
             <br>
 
-            <h3>¿Cuál es la diferencia entre Internet y la World Wide Web?</h3>
+
+            <h3 class="has-background-info-light">¿Cuál es la diferencia entre Internet y la World Wide Web?</h3>
                 El internet es una red global de redes y la www es una recopilación de información a la quese accede a través de internet.
             <br><br>
 
-            <h3>¿Cuáles son las partes de un URL?</h3>
+            <h3 class="has-background-info-light">¿Cuáles son las partes de un URL?</h3>
                     <strong>HTTPS:</strong> Transfiere información entre actores dentro de internet.
                 <div> 
                     <strong>Subdominio:</strong> Lo que aparece entre el protocolo y el primer punto del dominio.
@@ -43,7 +48,7 @@
                 </div>
             <br>
  
-            <h3>¿Cuál es el propósito de los métodos HTTP: GET, HEAD, POST, PUT, PATCH, DELETE?</h3>
+            <h3 class="has-background-info-light">¿Cuál es el propósito de los métodos HTTP: GET, HEAD, POST, PUT, PATCH, DELETE?</h3>
                 <div> 
                     <strong>GET:</strong> Solicita una representación de un recurso y solo recopila datos.
                 </div>
@@ -64,33 +69,33 @@
                 </div>
             <br>
 
-            <h3>¿Qué método HTTP se debe utilizar al enviar un formulario HTML, por ejemplo cuando ingresas tu usuario y contraseña en algún sitio? ¿Por qué?</h3>
+            <h3 class="has-background-info-light">¿Qué método HTTP se debe utilizar al enviar un formulario HTML, por ejemplo cuando ingresas tu usuario y contraseña en algún sitio? ¿Por qué?</h3>
                     Método post, porque los datos son incluidos al cuerpo de la petición en vez de obtener los datos adjuntos a la URL. Haciéndolo más seguro.   
-            <br>
+            <br><br>
 
-            <h3>¿Qué método HTTP se utiliza cuando a través de un navegador web se accede a una página a través de un URL?</h3>
+            <h3 class="has-background-info-light">¿Qué método HTTP se utiliza cuando a través de un navegador web se accede a una página a través de un URL?</h3>
                 <div> 
                     Método get, ya que es para pedir un recurso y por ende los datos se añaden a la URL.
                 </div>
             <br><br>    
 
-            <h3>Un servidor web devuelve una respuesta HTTP con código 200. ¿Qué significa esto? ¿Ocurrió algún error?</h3>
+            <h3 class="has-background-info-light">Un servidor web devuelve una respuesta HTTP con código 200. ¿Qué significa esto? ¿Ocurrió algún error?</h3>
                     Significa que la operación fue exitosa, así que no hay que preocuparnos.
             <br><br> 
 
-            <h3>¿Es responsabilidad del desarrollador corregir un sitio web si un usuario reporta que intentó acceder al sitio y se encontró con un error 404? ¿Por qué?</h3>
+            <h3 class="has-background-info-light">¿Es responsabilidad del desarrollador corregir un sitio web si un usuario reporta que intentó acceder al sitio y se encontró con un error 404? ¿Por qué?</h3>
                     No, porque el usuario trató de entrar a un recurso no disponible. Pero si se trata de un link roto, entonces si es culpa del desarrollador por no ponerlo bien.
             <br><br>
 
-            <h3>¿Es responsabilidad del desarrollador corregir un sitio web si un usuario reporta que intentó acceder al sitio y se encontró con un error 500? ¿Por qué?</h3>
+            <h3 class="has-background-info-light">¿Es responsabilidad del desarrollador corregir un sitio web si un usuario reporta que intentó acceder al sitio y se encontró con un error 500? ¿Por qué?</h3>
                     Si, porque indica que hay un fallo en la programación.
             <br><br>
 
-            <h3>¿Qué significa que un atributo HTML5 esté depreciado o desaprobado (deprecated)? Menciona algunos elementos de HTML 4 que en HTML5 estén desaprobados.</h3>
+            <h3 class="has-background-info-light">¿Qué significa que un atributo HTML5 esté depreciado o desaprobado (deprecated)? Menciona algunos elementos de HTML 4 que en HTML5 estén desaprobados.</h3>
                     Que han sido removidos de HTML5, algunos son rev y charset (de los elementos a, link), longdesc (de img e iframe), nohref (area) y profile (head).
             <br><br>
 
-            <h3>¿Cuáles son las diferencias principales entre HTML4 y HTML5?</h3>
+            <h3 class="has-background-info-light">¿Cuáles son las diferencias principales entre HTML4 y HTML5?</h3>
                 <div> 
                     - HTML5 define una sintaxis que son disponibles con HTML4.
                 </div>
@@ -111,7 +116,7 @@
                 </div>
             <br>
 
-            <h3>¿Qué componentes de estructura y estilo tiene una tabla?</h3>
+            <h3 class="has-background-info-light">¿Qué componentes de estructura y estilo tiene una tabla?</h3>
                 <div> 
                     (table ... /table): Identifica y contiene todo lo relacionado a la tabla.
                 </div>
@@ -145,7 +150,7 @@
 
                 <code><pre>Ejemplo
 
-                <table>
+                <table class="table is-borderer">
                     <tr>
                         <th>Animal</th>
                         <th>Subrgupo</th>
@@ -160,11 +165,11 @@
                         <td>Grillo</td>
                         <td>invertebrado</td>
                         <td>Insecto</td>
-                    </tr>
-                </table></pre></code>
+                    </tr></table>
+                </pre></code>
             
 
-            <h3>¿Cuáles son los principales controles de una forma HTML5?</h3>
+            <h3 class="has-background-info-light">¿Cuáles son los principales controles de una forma HTML5?</h3>
                 <div> 
                     - Cajas de texto (INPUT TYPE="text" SIZE MAXLENGHT VALUE ALIGN).
                 </div>
@@ -188,11 +193,11 @@
                 </div>
             <br>
 
-            <h3>¿Qué tanto soporte HTML5 tiene el navegador que utilizas?</h3>
+            <h3 class="has-background-info-light">¿Qué tanto soporte HTML5 tiene el navegador que utilizas?</h3>
                     476 de 555 puntos, utilizo Google Chrome.
             <br><br>
 
-                <h3>Sobre el ciclo de vida y desarrollo de los sistemas de información:</h3>
+            <h3 class="has-background-info-light">Sobre el ciclo de vida y desarrollo de los sistemas de información:</h3>
                 <div> 
                     <h4>¿Cuál es el ciclo de vida de los sistemas de información?</h4> 
                 </div>
