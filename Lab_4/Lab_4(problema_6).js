@@ -22,5 +22,3 @@ function Problema(){
     let empleado5 = new Date();
     document.write("<br>Empleado 5: " + empleado5.getMinutes() + ":" + empleado5.getSeconds());
 }
-
-Problema();

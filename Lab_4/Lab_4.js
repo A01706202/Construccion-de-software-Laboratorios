@@ -10,7 +10,6 @@ function Tabla() {
         document.write("<td>" + i*i*i + "</td></tr>");
     }
     document.write("</table>");
-    document.write("<br>");
 }
 
 //Ejercicio 2
@@ -96,8 +95,3 @@ function Inverso() {
 }
 
 
-Tabla();
-Suma_aleatoria();
-Contador_numeros();
-Promedios();
-Inverso();

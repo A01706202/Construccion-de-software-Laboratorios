@@ -36,6 +36,11 @@ code {
     color: rgb(19, 26, 26);
 }
 
+.button {
+    background-color: lightseagreen;
+    color: white;
+}
+
 pre {
     padding: 1em;
 }
