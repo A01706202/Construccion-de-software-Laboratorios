@@ -1,6 +1,5 @@
 //Ejercicio 1
 function Tabla() { 
-    document.write("<h3>Ejercicio 1</h3>");
 
     let num = prompt("Número: ");
     document.write("<table> <tr> <th> n </th> <th> n^2 </th> <th> n^3 </th> </tr>");
@@ -9,12 +8,11 @@ function Tabla() {
         document.write("<td>" + i*i + "</td>");
         document.write("<td>" + i*i*i + "</td></tr>");
     }
-    document.write("</table>");
+    document.write("</table><br>");
 }
 
 //Ejercicio 2
 function Suma_aleatoria() {
-    document.write("<h3>Ejercicio 2</h3>");
 
     let num1 = Math.floor(Math.random()*101);
     let num2 = Math.floor(Math.random()*101);
@@ -31,25 +29,28 @@ function Suma_aleatoria() {
         window.alert("Respuesta incorrecta :(");
     }   
 
-    document.write("<div>Tiempo tardado: " + tiempo/1000 + "s</div>");
-    document.write("<br>");
+    document.write("<div>Tiempo tardado: " + tiempo/1000 + "s</div><br>");
 }
 
 //Ejercicio 3
 function Contador_numeros() {
-    document.write("<h3>Ejercicio 3</h3>");
 
-    let arr = prompt("Inserte arreglo separado por espacios para contar positivos, negativos y ceros");
-    let num = arr.split(" ");
+    let esp = prompt("Números de elementos en el arreglo:");
+
+    let arr = [];
     let pos = 0;
     let neg = 0;
     let cero = 0;
 
-    for(let i=0; i<num.length; i++){
+    for(let i=0; i<esp; i++){
+        let num = Math.floor(Math.random()*(10- -10))+ -10;
+        arr.push(num);
+    }
 
-        if(num[i]==0){
+    for(let i=0; i<arr.length; i++){
+        if(arr[i]==0){
             cero++;
-        } else if (num[i]<0){
+        } else if (arr[i]<0){
             neg++;
         } else {
             pos++;
@@ -61,37 +62,75 @@ function Contador_numeros() {
 
     document.write("<div>Positivos: " + pos + "</div>");
     document.write("<div>Negativos: " + neg + "</div>");
-    document.write("<div>Ceros: " + cero + "</div>");
-    document.write("<br>");
+    document.write("<div>Ceros: " + cero + "</div><br>");
 }
 
 //Ejercicio 4
 function Promedios() {
-    document.write("<h3>Ejercicio 4</h3>");
 
-    let arr = prompt("Inserte arreglo de numeros separados por espacios para sacar promedio:");
-    let num = arr.split(" ");
-    let sum = 0;
-    for(let i=0; i<num.length; i++){       
-        sum += parseInt(num[i], 10);
+    let matriz = [];
+    let num_renglon = prompt("Números por renglón:");
+    let renglones = prompt("Número de renglones:")
+
+    while (renglones > 0){
+        let renglon = [];   
+        for (let i=0; i<=num_renglon-1; i++){
+            let random =  Math.floor(Math.random()*100);
+            renglon.push(random);
+        }
+        matriz.push(renglon);
+        renglones--;
     }
-    console.log("Promedio: " + sum/num.length);
-    document.write("Promedio: " + sum/num.length);
-    document.write("<br>");
+    
+    for (let i=0; i<matriz.length; i++){
+        let suma = 0;
+        let promedio = 0;
+        for (let j=0; j<matriz[i].length; j++){
+            let n = matriz[i][j];
+            suma += n;
+        }
+        let renglon = i+1;
+        promedio = suma / num_renglon;
+        document.write("Promedio del renglon " + renglon + ": " + promedio + "<br>");
+    }
+
+    document.write("<br>")
 }
 
 //Ejercicio 5
 function Inverso() {
-    document.write("<h3>Ejercicio 5</h3>");
     
-    let num = prompt("Número para invertir");
+    let num = prompt("Número para invertir:");
     let inv = "";
     for (let i = num.length-1; i>=0; i--){
         inv += num[i];
     }
     console.log("Número invertido: " + inv);
-    document.write("Número invertido: " + inv);
-    document.write("<br>");
+    document.write("Número invertido: " + inv + "<br>");
 }
 
 
+//Ejercicio 6
+function Problema(){
+    document.write("<br>Solución");
+
+    window.alert("Alguien quiere pasar a la conferencia (ejercicio 6)");
+    let empleado1 = new Date();
+    document.write("<br>Empleado 1: " + empleado1.getMinutes() + ":" + empleado1.getSeconds());
+
+    window.alert("Alguien quiere pasar a la conferencia");
+    let empleado2 = new Date();
+    document.write("<br>Empleado 2: " + empleado2.getMinutes() + ":" + empleado2.getSeconds());
+
+    window.alert("Alguien quiere pasar a la conferencia");
+    let empleado3 = new Date();
+    document.write("<br>Empleado 3: " + empleado3.getMinutes() + ":" + empleado3.getSeconds());
+
+    window.alert("Alguien quiere pasar a la conferencia");
+    let empleado4 = new Date();
+    document.write("<br>Empleado 4: " + empleado4.getMinutes() + ":" + empleado4.getSeconds());
+
+    window.alert("Alguien quiere pasar a la conferencia");
+    let empleado5 = new Date();
+    document.write("<br>Empleado 5: " + empleado5.getMinutes() + ":" + empleado5.getSeconds());
+}
