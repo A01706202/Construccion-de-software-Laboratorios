@@ -5,19 +5,26 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width-device-with, initial-scale=1.0">
         
-        <link href="css/bulma.css" rel="stylesheet">
+        <link href="css/bulma.min.css" rel="stylesheet">
+        <link href="css/bulma-rtl.min.css" rel="stylesheet">
         <link href="css/main.css" rel="stylesheet">
         <title>Laboratorio 6</title>
     </head>
-    <body>
+    <body class="has-background-warning-light">
         <header>
-            <ul><h1 class="title is-1 color-titulo">Laboratorio 6</h1></ul>
+            <ul><h1 class="title is-1 color-titulo content has-text-centered">Laboratorio 6</h1></ul>
         </header>
         <main>
             <div class="box has-text-link-dark">
-                <div>Michelle Aylin Calzada Montes</div>
-                <div>A01706202</div>
-                <div>ITC</div>
+                <table class="table is-fullwidth">
+                    <tr>
+                        <td>
+                            <figure class="image is-96x96">
+                                <img class="is-rounded" src="data:image/png;base64,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">
+                              </figure>
+                        </td>
+                        <td class="content has-text-right has-text-link">Michelle Aylin Calzada Montes<br>A01706202<br>ITC</td>
+                    </tr>></table>
             </div>
             <br>
 
@@ -147,10 +154,10 @@
                 <div>
                     (col /): Define una sola columna de información dentro de la tabla.
                 </div>
+                <br>
+                <div class="has-text-danger-dark">Ejemplo</div>
 
-                <code><pre>Ejemplo
-
-                <table class="table is-borderer">
+                <table class="table is-borderer has-text-danger-dark">
                     <tr>
                         <th>Animal</th>
                         <th>Subrgupo</th>
@@ -166,7 +173,7 @@
                         <td>invertebrado</td>
                         <td>Insecto</td>
                     </tr></table>
-                </pre></code>
+                    <br>
             
 
             <h3 class="has-background-info-light">¿Cuáles son los principales controles de una forma HTML5?</h3>
@@ -198,8 +205,8 @@
             <br><br>
 
             <h3 class="has-background-info-light">Sobre el ciclo de vida y desarrollo de los sistemas de información:</h3>
-                <div> 
-                    <h4>¿Cuál es el ciclo de vida de los sistemas de información?</h4> 
+                <div>
+                    <span class="tag is-info is-light is-primary is-medium">¿Cuál es el ciclo de vida de los sistemas de información?</span>
                 </div>
                 <div>
                     <strong>1) Fase de planificación:</strong> Se prepara el diseño y luego implementación del sistema. Se necesita definir el alcance del proyecto,
@@ -231,9 +238,11 @@
                 <div>
                     <strong>7) Fase de mantenimiento:</strong> Consiste en introducir los ajustes necesario del día a día.
                 </div>
-                <div> 
-                    <h4>¿Cuál es el ciclo de desarrollo de sistemas de información?</h4> 
+                <br>
+                <div>
+                    <span class="tag is-info is-light is-primary is-medium">¿Cuál es el ciclo de desarrollo de sistemas de información?</span>
                 </div>
+                <div>
                 <div>
                     <strong>1) Planificación del concepto:</strong> Se define los sistemas a diseñar y determinan el alcanse del proceso.
                 </div>
@@ -261,20 +270,16 @@
                 </div>
             <br>
 
-            <code><pre>
-                    <h3>Bibliografía</h3>
-- Diferencias entre World Wide Web e Internet - Telefonía IP para Empresas. (2019, March 12). Telefonía IP 
-Para Empresas. <a href="https://www.comunicatefacil.com/diferencias-world-wide-web-internet/#:~:text=Internet%20es%20una%20red%20global,un%20servicio%20sobre%20esa%20infraestructura.">Link</a>
+            <code><pre><h3>Bibliografía</h3>
+- Diferencias entre World Wide Web e Internet - Telefonía IP para Empresas. (2019, March 12). Telefonía IP Para Empresas. <a href="https://www.comunicatefacil.com/diferencias-world-wide-web-internet/#:~:text=Internet%20es%20una%20red%20global,un%20servicio%20sobre%20esa%20infraestructura.">Link</a>
                     
 - Partes de una URL con ejemplos y explicación fácil. (2019, November 3). Edyta Pukocz. <a href="https://edytapukocz.com/url-partes-ejemplos-facil/">Link</a>                   
 
 - Noguera, D. (2020, April 3). Error 500, Qué es y cómo solucionar (Internal Server Error). Webempresa. <a href="https://www.webempresa.com/blog/que-es-un-error-500-y-como-localizarlo-en-nuestra-web.html">Link</a>               
 
-- ¿Cuáles son las diferencias entre HTML4 (XHTML 1.0) y HTML5? – Programación en Internet. (2011, January 17). 
-Blogs.ua.es. <a href="https://blogs.ua.es/pi/2011/01/17/%C2%BFcuales-son-las-diferencias-entre-html4-xhtml-1-0-y-html5/#:~:text=Algunas%20de%20las%20principales%20diferencias,%2F%3E%20(XHTML%201.0).&text=HTML5%20permite%20incluir%20elementos%20de%20SVG%20y%20MathML.">Link</a>
+- ¿Cuáles son las diferencias entre HTML4 (XHTML 1.0) y HTML5? – Programación en Internet. (2011, January 17). Blogs.ua.es. <a href="https://blogs.ua.es/pi/2011/01/17/%C2%BFcuales-son-las-diferencias-entre-html4-xhtml-1-0-y-html5/#:~:text=Algunas%20de%20las%20principales%20diferencias,%2F%3E%20(XHTML%201.0).&text=HTML5%20permite%20incluir%20elementos%20de%20SVG%20y%20MathML.">Link</a>
 
-- Redacción PowerData. (2019). Ciclo de vida de un sistema de información: fases y componentes. Powerdata.es. 
-<a href="https://blog.powerdata.es/el-valor-de-la-gestion-de-datos/ciclo-de-vida-de-un-sistema-de-informacion-fases-y-componentes">Link</a>
+- Redacción PowerData. (2019). Ciclo de vida de un sistema de información: fases y componentes. Powerdata.es. <a href="https://blog.powerdata.es/el-valor-de-la-gestion-de-datos/ciclo-de-vida-de-un-sistema-de-informacion-fases-y-componentes">Link</a>
 
 - Israel. (2019). El ciclo SDLC en 7 fases. Viewnext. <a href="https://www.viewnext.com/el-ciclo-sdlc-en-7-fases/">Link</a>                    
 
@@ -284,34 +289,40 @@ Blogs.ua.es. <a href="https://blogs.ua.es/pi/2011/01/17/%C2%BFcuales-son-las-dif
 
 - Declaración !important en CSS. (2010, January 25). Desarrolloweb.com; Desarrollo Web. <a href="https://desarrolloweb.com/articulos/declaracion-important-css.html">Link</a>
 
-- César Krall. (2021). Unidades de medida CSS relativas o absolutas. in, cm, mm, pt, pc, pixel px, porcentaje, 
-em, ex (CU01024D). <a href="Aprenderaprogramar.com. https://www.aprenderaprogramar.com/index.php?option=com_content&view=article&id=728:unidades-de-medida-css-relativas-o-absolutas-in-cm-mm-pt-pc-pixel-px-porcentaje-em-ex-cu01024d&catid=75&Itemid=203">Link</a>
+- César Krall. (2021). Unidades de medida CSS relativas o absolutas. in, cm, mm, pt, pc, pixel px, porcentaje, em, ex (CU01024D). <a href="Aprenderaprogramar.com. https://www.aprenderaprogramar.com/index.php?option=com_content&view=article&id=728:unidades-de-medida-css-relativas-o-absolutas-in-cm-mm-pt-pc-pixel-px-porcentaje-em-ex-cu01024d&catid=75&Itemid=203">Link</a>
 
-                  
-                </pre></code>
+- ¿Qué es Material Design? (2014, November 9). El Androide Libre. <a href="https://elandroidelibre.elespanol.com/2014/11/que-es-material-design.html">Link</a>
+</pre></code>
                 
-                <br>
-                <ul><h1>Preguntas laboratorio CSS</h1></ul>
-                <h3>Como ingeniero de software ¿cuál es tu recomendación sobre el uso de !important en un CSS?</h3>
+                <br><br><br>
+                <ul><h1 class="title is-3 color-titulo">Preguntas laboratorio CSS</h1></ul>
+                <h3 class="has-background-info-light">Como ingeniero de software ¿cuál es tu recomendación sobre el uso de !important en un CSS?</h3>
                 Que se utilice cuando se quiera definir reglas de estilos en navegadores antiguos y para hacer que unas propiedades tomen mayor importancia que otras sobreescritas.
                 <br><br>
 
-                <h3>Si se pone una imagen de fondo en una página HTML, ¿por qué debe escogerse con cuidado?</h3>
+                <h3 class="has-background-info-light">Si se pone una imagen de fondo en una página HTML, ¿por qué debe escogerse con cuidado?</h3>
                 Porque puede afectar a la optimización de la página web y puede que el tamaño de la imagen no concuerde con el de la página, haciendo que se viera mal.
                 <br><br>
 
-                <h3>Como ingeniero de software, ¿cuál es tu recomendación al elegir las unidades de un propiedad de estilo entre %, px y pt?</h3>
+                <h3 class="has-background-info-light">Como ingeniero de software, ¿cuál es tu recomendación al elegir las unidades de un propiedad de estilo entre %, px y pt?</h3>
                 % se utilizaría para establecer proporciones adecuadas en relación a la pantalla, el px para que los elementos web se pueda visualizar con tamaños precisos y el pt
                 para valores absolutos, pero por esta razón no es muy recomendable porque es difícil que se adaptenal tamaño de pantalla de cada usuario.
                 <br><br>
 
-                <h3>¿Por qué el uso de una versión minimizada del CSS mejora el rendimiento del sitio?</h3>
+                <h3 class="has-background-info-light">¿Por qué el uso de una versión minimizada del CSS mejora el rendimiento del sitio?</h3>
                 Porque de esta manera ya no consumen tanto espacio, tiempo y recursos de los navegadores web para procesarlos.
+                
+                <br><br><br>
+                <ul><h1 class="title is-3 color-titulo">Preguntas laboratorio 6</h1></ul>
+                <h3 class="has-background-info-light">Material Design</h3>
+                Es un concepto enfocado al diseño enfocado en Android, en la web y en cualquier plataforma. Esta basado en objetos materiales, piezas colocadas en un espacio con un tiempo determinado.
+                Aquí la profundidad, superficies, bordes, sombras y colores juegan papeles importantes.
                 <br><br>
+
         </main>
 
-        <footer>
-            <p>Programa utilizado para editar: <a href="https://code.visualstudio.com/">Visual Studio Code</a></p>
+        <footer class="footer has-text-primary box has-text-centered">
+            <p>Programa utilizado para editar: <a href="https://code.visualstudio.com/">Visual Studio Code</a> y <a href="https://bulma.io/">Bulma</a></p>
         </footer>
     </body>
 </html>
