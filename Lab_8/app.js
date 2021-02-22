@@ -105,19 +105,19 @@ const server = http.createServer((request, response)=>{
     response.write("<strong>4) Fase de desarrollo y pruebas:</strong> Crean el software y la arquitectura fisica necesaria para albergar la base de datos del sistema. Cuando se termina, se realizan pruebas para ver el funcionamiento y si es necesario, hacer correcciones.<br>");
     response.write("<strong>5) Puesta en marcha:</strong> El sistema es pasado a los usuarios finales para que se empiece a utilizar.<br>");
     response.write("<strong>6) Operaciones y mantenimientos:</strong> Se controla el sistema para asegurar que cumplan los requisitos y se le da mantenimiento para que funcione.<br>");
-    response.write("<strong>7) Disposicion:</strong> Comprende el fin del ciclo de vida del sistema y su retiro, se siguen pasos sistematicos para finalizarlo en un entorno de seguridad que permita conservar la información util o sensible.<br><br><br>");
+    response.write("<strong>7) Disposicion:</strong> Comprende el fin del ciclo de vida del sistema y su retiro, se siguen pasos sistematicos para finalizarlo en un entorno de seguridad que permita conservar la informacion util o sensible.<br><br><br>");
 
     response.write("<h3>Bibliografia</h3>");
-    response.write("<br>");
-    response.write("<br>");
-    response.write("<br>");
-    response.write("<br>");
-    response.write("<br>");
-    response.write("<br>");
-    response.write("<br>");
-    response.write("<br>");
-    response.write("<br>");
-    response.write("<br><br>");
+    response.write("- Diferencias entre World Wide Web e Internet - Telefonia IP para Empresas. (2019, March 12). Telefonia IP Para Empresas.<br>");
+    response.write("- Partes de una URL con ejemplos y explicacion facil. (2019, November 3). Edyta Pukocz.<br>");
+    response.write("- Noguera, D. (2020, April 3). Error 500, Que es y como solucionar (Internal Server Error). Webempresa.<br>");
+    response.write("- Cuales son las diferencias entre HTML4 (XHTML 1.0) y HTML5? – Programacion en Internet. (2011, January 17). Blogs.ua.es.<br>");
+    response.write("- Redaccion PowerData. (2019). Ciclo de vida de un sistema de información: fases y componentes. Powerdata.es. <br>");
+    response.write("- Israel. (2019). El ciclo SDLC en 7 fases. Viewnext.<br>");
+    response.write("- Sending form data - Aprende sobre desarrollo web | MDN. (2020, July 16). Mozilla.org.<br>");
+    response.write("- Controles de Formularios. (2021). Ibiblio.org.<br>");
+    response.write("- Declaracion !important en CSS. (2010, January 25). Desarrolloweb.com; Desarrollo Web.<br>");
+    response.write("- Cesar Krall. (2021). Unidades de medida CSS relativas o absolutas. in, cm, mm, pt, pc, pixel px, porcentaje, em, ex (CU01024D).<br><br>");
 
     response.write("</main>");
 

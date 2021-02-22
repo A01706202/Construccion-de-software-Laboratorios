@@ -6,16 +6,6 @@ const readline = require('readline');
         output: process.stdout
     });
 
-function s() {
-
-   captura_datos.question("Numero: ", function(num){
-       //console.log(`num: ${num+2}`);
-
-       console.log("num: " + (parseInt(num,10)+4));
-       captura_datos.close();
-   });  
-}
-
 //Problema 1
 function promedio() {
     
@@ -31,7 +21,7 @@ function promedio() {
         for(let i=0; i<arr.length; i++){       
             sum += arr[i];
         }
-        console.log(arr);
+        console.log("Números: " + arr);
         console.log("Promedio: " + sum/arr.length);
         captura_datos.close();
     });
