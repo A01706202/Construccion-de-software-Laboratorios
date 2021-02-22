@@ -64,5 +64,5 @@ function problema(){
 }
 
 promedio();
-//escribir_archivo();
-//problema();
+escribir_archivo();
+problema();
