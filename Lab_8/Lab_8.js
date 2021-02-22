@@ -23,7 +23,7 @@ function promedio() {
 
         let arr = [];
         for(let i=0; i<tam; i++){
-            let random =  Math.floor(Math.random()*100);
+            let random =  Math.floor(Math.random()*50);
             arr.push(random);
         }
 
@@ -32,7 +32,7 @@ function promedio() {
             sum += arr[i];
         }
         console.log(arr);
-        console.log("\nPromedio: " + sum/arr.length);
+        console.log("Promedio: " + sum/arr.length);
         captura_datos.close();
     });
 }
@@ -63,14 +63,6 @@ function problema(){
     });
 }
 
-const http = require('http');
-
-const server = http.createServer((request, response)=>{
-    console.log("holi");
-    response.end();
-});
-server.listen(3000);
-
-//promedio();
+promedio();
 //escribir_archivo();
 //problema();
