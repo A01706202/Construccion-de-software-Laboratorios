@@ -19,14 +19,20 @@ function s() {
 //Problema 1
 function promedio() {
     
-    captura_datos.question("Inserte arreglo de numeros solamente separados por espacios para sacar promedio: ", function(arr){
+    captura_datos.question("Tamaño del arreglo: ", function(tam){
 
-        let num = arr.split(" ");
-        let sum = 0;
-        for(let i=0; i<num.length; i++){       
-            sum += parseInt(num[i], 10);
+        let arr = [];
+        for(let i=0; i<tam; i++){
+            let random =  Math.floor(Math.random()*100);
+            arr.push(random);
         }
-        console.log("Promedio: " + sum/num.length);
+
+        let sum = 0;
+        for(let i=0; i<arr.length; i++){       
+            sum += arr[i];
+        }
+        console.log(arr);
+        console.log("\nPromedio: " + sum/arr.length);
         captura_datos.close();
     });
 }
@@ -49,14 +55,21 @@ function escribir_archivo(){
 //Problema 3
 function problema(){
 
-    captura_datos.question("Escriba un texto para contar el numero de letras y palabras que tiene: \n", function(texto){
+    captura_datos.question("Inserte un texto para contar cuantas palabras contiene: \n", function(texto){
         let texto_dividido = texto.split(" ");
         let palabras = texto_dividido.length;
         console.log("Numero de palabras: " + palabras);
         captura_datos.close();
     });
-
 }
+
+const http = require('http');
+
+const server = http.createServer((request, response)=>{
+    console.log("holi");
+    response.end();
+});
+server.listen(3000);
 
 //promedio();
 //escribir_archivo();
