@@ -35,7 +35,9 @@ const server = http.createServer((request, response)=>{
         response.setHeader('Content-Type','text/html');
         response.write("<html>");
         response.write("<head><title>App Web</title></head>");
-        response.write("<body>");
+        response.write("<body><h1><ul>Ruta 2</ul></h1>");
+        response.write("Que bien! Llegaste a la ruta 2 :o<br><br>");
+        response.write("Sabias que puedes beber lava pero solo una vez en la vida?");
         response.write("</body>");
         response.write("</html>");
         response.end();
@@ -44,7 +46,7 @@ const server = http.createServer((request, response)=>{
         response.setHeader('Content-Type','text/html');
         response.write("<html>");
         response.write("<head><title>App Web</title></head>");
-        response.write("<body>");
+        response.write("<body><h1><ul>Ruta 3</ul></h1>");
         response.write("</body>");
         response.write("</html>");
         response.end();
