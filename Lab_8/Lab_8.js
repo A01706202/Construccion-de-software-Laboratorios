@@ -53,6 +53,6 @@ function problema(){
     });
 }
 
-//promedio();
-//escribir_archivo();
+promedio();
+escribir_archivo();
 problema();
