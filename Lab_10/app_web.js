@@ -69,7 +69,9 @@ const server = http.createServer((request, response)=>{
                     throw error;
                 }
             });
-            response.end();
+            response.statusCode = 302;
+            response.setHeader('Location','/');
+            return response.end();
         });
 
     } else {
