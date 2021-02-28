@@ -1,0 +1,29 @@
+{
+  "name": "lab_11",
+  "version": "1.0.0",
+  "description": "Lab_11",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/A01706202/Construccion-de-software-Laboratorios.git"
+  },
+  "keywords": [
+    "express"
+  ],
+  "author": "Michelle Calzada",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/A01706202/Construccion-de-software-Laboratorios/issues"
+  },
+  "homepage": "https://github.com/A01706202/Construccion-de-software-Laboratorios#readme",
+  "devDependencies": {
+    "nodemon": "^2.0.7"
+  },
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
