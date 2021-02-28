@@ -1,10 +1,11 @@
 const express = require('express');
 const app = express();
+
 const bodyParser = require('body-parser');
 
 app.use(bodyParser.urlencoded({extended: false}));
 
-const misMircielagos = require('./routes/murcielagos');
+const misMurcielagos = require('./routes/murcielagos');
 const misExtra = require('./routes/extra');
 
 //Middleware
@@ -14,10 +15,10 @@ app.use((request, response, next) => {
 });
 
 app.get('/', (request, response, next) => {
-    response.send('<h1>Laboratorio 11</h1> Michelle Aylin Calzada Montes<br>A01706202<br>ITC<br> <br><br>Rutas disponibles:<br><br><li>/mandar-sugerencias</li>'); 
+    response.send('<h1><ul>Laboratorio 11</ul></h1> Michelle Aylin Calzada Montes<br>A01706202<br>ITC<br> <br><br>Rutas disponibles:<br><br><li>/murcielagos</li> <li>/murcielagos/tipos</li> <li>/extra/dato-curioso</li> <li>/extra/mandar-sugerencia</li> <li>/extra/pregunta-a-responder-Lab_11</li>'); 
 });
 
-app.use('/murcielagos', misMircielagos);
+app.use('/murcielagos', misMurcielagos);
 app.use('/extra', misExtra);
 
 app.use((request, response, next) => {
