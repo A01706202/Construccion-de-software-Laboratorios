@@ -34,6 +34,7 @@ app.get('/', (request, response, next) => {
 });
 
 app.use((request, response, next) => {
+    response.statusCode = 404;
     response.send('<h1>Page not found :(</h1>');
 });
 
