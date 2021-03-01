@@ -1,16 +1,18 @@
 const express = require('express');
 const app = express();
-
+const bodyParser = require('body-parser');
 const path = require('path');
 
 app.set('view engine', 'ejs');
 app.set('views', 'views');
 
-const bodyParser = require('body-parser');
 app.use(bodyParser.urlencoded({extended: false}));
 
 const misMurcielagos = require('./routes/murcielagos');
 const misExtra = require('./routes/extra');
+
+
+app.use(express.static(path.join(__dirname, 'public')));
 
 //Middleware
 app.use((request, response, next) => {
@@ -23,7 +25,11 @@ app.get('/', (request, response, next) => {
 });
 
 app.use('/murcielagos', misMurcielagos);
-app.use('/extra', misExtra);
+//app.use('/extra', misExtra);
+
+app.get('/prueba', (request, response, next) => {
+    response.sendFile(path.join(__dirname, 'views', 'pregunta-a-responder.html'));
+});
 
 app.use((request, response, next) => {
     response.statusCode = 404;
