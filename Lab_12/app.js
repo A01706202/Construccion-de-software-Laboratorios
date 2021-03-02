@@ -21,16 +21,12 @@ app.use((request, response, next) => {
 });
 
 app.get('/', (request, response, next) => {
-    response.send('<h1><ul>Laboratorio 11</ul></h1> Michelle Aylin Calzada Montes<br>A01706202<br>ITC<br> <br><br>Rutas disponibles:<br><br><li>/murcielagos</li> <li>/murcielagos/tipos</li> <li>/extra/dato-curioso</li> <li>/extra/mandar-sugerencia</li> <li>/extra/pregunta-a-responder-Lab_11</li>'); 
+    response.sendFile(path.join(__dirname, 'views', 'index.html'));
 });
 
 app.use('/murcielagos', misMurcielagos);
 app.use('/extra', misExtra);
-/*
-app.get('/prueba', (request, response, next) => {
-    //response.sendFile(path.join(__dirname, 'views', 'pregunta-a-responder.html'));
-});
-*/
+
 app.use((request, response, next) => {
     response.statusCode = 404;
     response.status(404);

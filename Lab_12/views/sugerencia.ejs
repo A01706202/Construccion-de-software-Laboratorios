@@ -1,13 +1,14 @@
 <%- include('partials/head.ejs') %>
         <main>
-            <% if (sugerencias.length > 0) { %>
+            <h1><ul>Historial de sugerencias</ul></h1>
+            <% if (historial_sugerencias.length > 0) { %>
                 <ul>
-                    <% for (let opinion of sugerencias) { %>
-                        <li><%= opinion %></li><br><br>
+                    <% for (let opinion of historial_sugerencias) { %>
+                        <li><%= opinion %></li><br>
                     <% } %>
                 </ul>
             <% } else { %>
-                <h1>No hay sugerencias</h1>
+                <h3>No hay sugerencias</h3>
             <% } %>
         </main>
 <%- include('partials/footer.ejs') %>
