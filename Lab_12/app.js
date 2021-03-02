@@ -25,14 +25,15 @@ app.get('/', (request, response, next) => {
 });
 
 app.use('/murcielagos', misMurcielagos);
-//app.use('/extra', misExtra);
-
+app.use('/extra', misExtra);
+/*
 app.get('/prueba', (request, response, next) => {
-    response.sendFile(path.join(__dirname, 'views', 'pregunta-a-responder.html'));
+    //response.sendFile(path.join(__dirname, 'views', 'pregunta-a-responder.html'));
 });
-
+*/
 app.use((request, response, next) => {
     response.statusCode = 404;
+    response.status(404);
     response.send('<h1>Page not found :(</h1>');
 });
 
