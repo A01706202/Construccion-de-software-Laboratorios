@@ -6,7 +6,7 @@ router.get('/tipos', (request, response, next) => {
     response.render('tipos-murcielagos');
 });
 
-router.get('/', (request, response, next) => {
+router.use('/', (request, response, next) => {
     response.render('murcielagos');
 });
 

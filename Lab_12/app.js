@@ -28,7 +28,7 @@ app.use('/murcielagos', misMurcielagos);
 app.use('/extra', misExtra);
 
 app.use((request, response, next) => {
-    response.statusCode = 404;
+    //response.statusCode = 404;
     response.status(404);
     response.send('<h1>Page not found :(</h1>');
 });
