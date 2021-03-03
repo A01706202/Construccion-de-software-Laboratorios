@@ -2,12 +2,10 @@ const express = require('express');
 
 const router = express.Router();
 
-router.get('/tipos', (request, response, next) => {
-    response.render('tipos-murcielagos');
-});
+const murcController = require('../controllers/murcielagos_controller');
 
-router.use('/', (request, response, next) => {
-    response.render('murcielagos');
-});
+router.get('/tipos', murcController.getTipos);
+
+router.use('/', murcController.getInfo);
 
 module.exports = router;
