@@ -4,23 +4,13 @@ const router = express.Router();
 
 const extraController = require('../controllers/extra_controller');
 
-const sugerencias = [];
 
+router.get('/mandar-sugerencia', extraController.getNuevaSugerencia);
 
-router.get('/mandar-sugerencia', (request, response, next) => {
-    response.render('mandar_sugerencia');
-});
+router.post('/mandar-sugerencia', extraController.postNuevaSugerencia);
 
-router.post('/mandar-sugerencia', (request, response, next) => {
-    sugerencias.push(request.body.opinion);
-    console.log(sugerencias);
-    response.redirect('/extra/historial-sugerencias');
-});
+router.get('/historial-sugerencias', extraController.getHistorialSugerencias);
 
-router.get('/historial-sugerencias', extraController.get);
-
-router.get('/pregunta-a-responder-lab', (request, response, next) => {
-    response.render('pregunta-a-responder');
-});
+router.get('/pregunta-a-responder-lab', extraController.getPreguntaResponder);
 
 module.exports = router;

@@ -11,7 +11,6 @@ app.use(bodyParser.urlencoded({extended: false}));
 const misMurcielagos = require('./routes/murcielagos');
 const misExtra = require('./routes/extra');
 
-
 app.use(express.static(path.join(__dirname, 'public')));
 
 //Middleware
