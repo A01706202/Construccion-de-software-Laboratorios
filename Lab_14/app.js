@@ -3,7 +3,8 @@ const app = express();
 const bodyParser = require('body-parser');
 const path = require('path');
 
-var cookieParser = require('cookie-parser');
+const cookieParser = require('cookie-parser');
+const session = require('express-session');
 
 app.set('view engine', 'ejs');
 app.set('views', 'views');
@@ -13,6 +14,8 @@ app.use(cookieParser());
 
 const misMurcielagos = require('./routes/murcielagos');
 const misExtra = require('./routes/extra');
+const misUsers = require('./routes/users');
+
 
 app.use(express.static(path.join(__dirname, 'public')));
 
@@ -28,6 +31,7 @@ app.get('/', (request, response, next) => {
 
 app.use('/murcielagos', misMurcielagos);
 app.use('/extra', misExtra);
+app.use('/users/', misUsers);
 
 app.use((request, response, next) => {
     //response.statusCode = 404;
