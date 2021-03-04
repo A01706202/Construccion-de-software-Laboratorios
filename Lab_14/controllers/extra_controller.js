@@ -1,7 +1,9 @@
 const Sugerencia = require('../models/sugerencia');
 
 exports.getNuevaSugerencia = (request, response, next) => {
-    response.render('mandar_sugerencia');
+    response.render('mandar_sugerencia',{
+        isLoggedIn: request.session.isLoggedIn === true ? true : false
+    });
 };
 
 exports.postNuevaSugerencia = (request, response, next) => {
@@ -22,10 +24,13 @@ exports.getHistorialSugerencias = (request, response, next) => {
 
     response.render('sugerencia', {
         historial_sugerencias: Sugerencia.fetchAll(),
-        total: Sugerencia.CuentaSugerencias()
+        total: Sugerencia.CuentaSugerencias(),
+        isLoggedIn: request.session.isLoggedIn === true ? true : false
     });
 };
 
 exports.getPreguntaResponder = (request, response, next) => {
-    response.render('pregunta-a-responder');
+    response.render('pregunta-a-responder', {
+        isLoggedIn: request.session.isLoggedIn === true ? true : false
+    });
 };
