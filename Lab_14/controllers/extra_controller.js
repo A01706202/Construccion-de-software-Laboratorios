@@ -8,11 +8,14 @@ exports.postNuevaSugerencia = (request, response, next) => {
     const nueva_sugerencia = new Sugerencia(request.body.opinion);
     nueva_sugerencia.save();
     console.log(request.body.opinion);
+    response.setHeader('Set-Cookie', ['ultima_sugerencia=' +nueva_sugerencia.recomendacion]);
     response.redirect('/extra/historial-sugerencias');
 };
 
 exports.getHistorialSugerencias = (request, response, next) => {
-    const num_sugerencias = Sugerencia.CuentaSugerencias();
+    console.log('Cookie: ' + request.get('Cookie'));
+    request.get('Cookie').split(';')[1].trim().split('=')[1];
+    
     response.render('sugerencia', {
         historial_sugerencias: Sugerencia.fetchAll(),
         total: Sugerencia.CuentaSugerencias()
