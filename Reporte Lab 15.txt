@@ -1,0 +1,22 @@
+Michelle Aylin Calzada Montes
+A01706202
+
+	Reporte laboratorio 15
+
+1) ¿Que muestra la instrucción sp_help materiales?
+Muestra la información de la tabla Materiales, como el tipo de datos de cada columna y relaciones.
+
+2) ¿Qué efecto tuvo esta acción?
+Se crearon las cuatro tablas de golpe.
+
+3) ¿Qué utilidad tiene esta manera de ejecutar los comandos de SQL?
+Es mucho más rápido crear las tablas necesarias.
+
+4) ¿Qué relación tienen con las tablas de la base de datos? (checa su contenido)
+Que los archivos tienen el contenido de cada tabla creada.
+
+5) ¿Qué relación tiene el contenido de este archivo (materiales.sql) con el formato en que se encuentran los datos en el archivo materiales.csv?
+los datos del archivo materiales.csv tiene las mismas separaciones que materiales.sql marca, lo que esto indica el como se distribuirán los daots en la tabla.
+
+6) ¿Qué sucedió?
+Se cargaron los datos del archivo a la tabla y con la consulta se mostró la tabla con sus datos.
