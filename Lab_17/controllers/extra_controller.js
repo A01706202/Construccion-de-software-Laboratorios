@@ -6,8 +6,7 @@ exports.getSugerencia = (request, response, next) => {
             .then(([rows, fieldData]) => {
                 response.render('sugerencia-especifica', { 
                     historial_sugerencias: rows,
-                    //isLoggedIn: request.session.isLoggedIn === true ? true : false
-                    isLoggedIn: true
+                    isLoggedIn: request.session.isLoggedIn === true ? true : false
                 });
             })
             .catch(err => {
@@ -47,8 +46,7 @@ exports.getHistorialSugerencias = (request, response, next) => {
                 response.render('sugerencia', {
                     historial_sugerencias: rows,
                     total: rows.length,
-                    //isLoggedIn: request.session.isLoggedIn === true ? true : false
-                    isLoggedIn: true
+                    isLoggedIn: request.session.isLoggedIn === true ? true : false
                 });
             })
         .catch(err => {

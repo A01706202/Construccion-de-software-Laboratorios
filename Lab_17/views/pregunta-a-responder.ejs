@@ -5,10 +5,16 @@
         <main>
             <% if (isLoggedIn) { %>
                 <h3>¿Qué ventajas tiene escribir el código SQL únicamente en la capa del modelo?</h3>
-                Esta todo más estructurado y en capas, lo que hace más fácil corregir e identificar errores y el código ya no se ve amontonado.<br><br>
+                Es más fácil de visualizar y de corregir cuando haya un error, además le da un mejor orden a nuestro código en capas.<br><br>
 
                 <h3>¿Qué es SQL injection y cómo se puede prevenir?</h3>
-                Puede ser tedioso si es que se trabaja con algo pequeño y hay muchos archivos, lo que ocaciona que al principio sea confuso y cansado moverse entre ellos.<br><br>
+                Es un método de ataque en donde se insertan sentencias SQL maliciosas a nuestra base de datos.<br>
+                Se pueden prevenir con el uso de declaraciones preparadas o escapar de los caracteres especiales en la entrada del usuario.<br><br><br>
+
+                <h3>Bibliografía</h3>
+                Shaumik Daityari. (2020, January 14). Inyección SQL: Una guía para usuarios principiantes de WordPress. Kinsta. <a href='https://kinsta.com/es/blog/inyeccion-sql/'>Link.</a>
+
+‌
             <% } else { %>
                     Registrese en /users/login para acceder a este contenido.
             <% } %>
