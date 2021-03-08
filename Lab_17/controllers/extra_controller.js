@@ -8,10 +8,13 @@ exports.getNuevaSugerencia = (request, response, next) => {
 
 exports.postNuevaSugerencia = (request, response, next) => {
     const nueva_sugerencia = new Sugerencia(request.body.opinion);
-    nueva_sugerencia.save();
     console.log(request.body.opinion);
-    response.setHeader('Set-Cookie', ['ultima_sugerencia=' +nueva_sugerencia.recomendacion+'; HttpOnly']);
-    response.redirect('/extra/historial-sugerencias');
+    nueva_sugerencia.save()
+    .then(() => {
+        response.setHeader('Set-Cookie', ['ultima_sugerencia='+nueva_sugerencia.recomendacion+'; HttpOnly']);
+        response.redirect('/extra/historial-sugerencias');
+        })
+    .catch(err => console.log(err));
 };
 
 exports.getHistorialSugerencias = (request, response, next) => {
@@ -22,11 +25,27 @@ exports.getHistorialSugerencias = (request, response, next) => {
     console.log(request.cookies);
     console.log(request.cookies.ultima_sugerencia);
 
-    response.render('sugerencia', {
-        historial_sugerencias: Sugerencia.fetchAll(),
-        total: Sugerencia.CuentaSugerencias(),
-        isLoggedIn: request.session.isLoggedIn === true ? true : false
-    });
+    Sugerencia.fetchAll()
+        .then(([rows, fieldData]) => {
+            const sugerencias = [];
+            for(let sugerencia of rows){
+                console.log(sugerencia.recomendaciones);
+                sugerencias.push({
+                    recomendaciones: sugerencia.recomendaciones
+                });
+            }
+            console.log(sugerencias);
+            
+                response.render('sugerencia', {
+                    historial_sugerencias: sugerencias,
+                    total: 2,
+                    //isLoggedIn: request.session.isLoggedIn === true ? true : false
+                    isLoggedIn: true
+                });
+            })
+        .catch(err => {
+            console.log(err);
+        });
 };
 
 exports.getPreguntaResponder = (request, response, next) => {
