@@ -1,0 +1,49 @@
+<%- include('partials/head.ejs') %>
+<body background="https://www.freevector.com/uploads/vector/preview/30353/Beautiful_Pastel_Background_1.jpg">
+        
+    <header>
+        <h1 id="titulo" class="formato-titulo">Bienvenido</h1>
+    </header>
+    <main>
+        
+        <div class="formulario" id="pass">
+            <br>
+            Contraseña <br>
+            <input id="password" type="password">
+            <br><br>
+            Ingrese de nuevo la contraseña <br>
+            <input id="password2" type="password">
+            <br><br>
+            <button id="validacion" class="button" onclick="validar_password()">Validar</button> 
+            <br><br>
+        </div>
+
+        <div id="tienda">
+            <table class="letra">
+                <tr>
+                    <td><div id="imagen1"></div></td>
+                    <td><div id="informacion1" class="contenido"></div></td>
+                    <td>Unidades queridas<br><input id="no_unidades1" type="number" class="pedido"></td>
+                </tr>
+                <tr>
+                    <td><div id="imagen2"></div></td>
+                    <td><div id="informacion2" class="contenido"></div></td>
+                    <td>Unidades queridas<br><input id="no_unidades2" type="number" class="pedido"></td>
+                </tr>
+                <tr>
+                    <td><div id="imagen3"></div></td>
+                    <td><div id="informacion3" class="contenido"></div></td>
+                    <td>Unidades queridas<br><input id="no_unidades3" type="number" class="pedido"></td>
+                </tr>
+            </table>
+            <br><br>
+            <div class="pago-cuadro">
+                <button id="pagar" class="pago" onclick="hacer_pago()">Pagar</button>
+                <br><br>
+                <div id="total"></div>
+            </div>
+            
+        </div>
+  
+    </main>
+<%- include('partials/footer.ejs') %>
