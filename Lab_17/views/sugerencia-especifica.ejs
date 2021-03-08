@@ -1,19 +1,21 @@
 <%- include('partials/head.ejs') %>
         <main>
-            <h1><ul>Historial de sugerencias</ul></h1>
+            
+            <h1><ul>Sugerencia especifica<ul></h1>
             <% if (isLoggedIn) { %>
                 <% if (historial_sugerencias.length > 0) { %>
                     <ul>
                         <% for (let opinion of historial_sugerencias) { %>
+                            
                             <li><%= opinion.recomendacion %></li><br>
                         <% } %>
                     </ul>
                 <% } else { %>
                     <h3>No hay sugerencias</h3>
                 <% } %>
-                <br><br><strong>Sugerencias totales: </strong> <%= total %>
-                <% } else { %>
-                    Registrese en /users/login para acceder a este contenido.
-                    <% } %>
+
+            <% } else { %>
+                Registrese en /users/login para acceder a este contenido.
+            <% } %>
         </main>
 <%- include('partials/footer.ejs') %>

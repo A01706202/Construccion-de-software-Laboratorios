@@ -9,9 +9,8 @@ module.exports = class Sugerencia {
 
     //Este método servirá para guardar de manera persistente el nuevo objeto. 
     save() {
-        //sugerencias.push(this.recomendacion);
-        return db.execute('INSERT INTO sugerencias (recomendaciones) VALUES (?)',
-            [this.recomendaciones]
+        return db.execute('INSERT INTO sugerencias (recomendacion) VALUES (?)',
+            [this.recomendacion]
         );
     }
 
@@ -19,10 +18,9 @@ module.exports = class Sugerencia {
     static fetchAll() {
         return db.execute('SELECT * FROM sugerencias');
     }
-/*
-    static CuentaSugerencias() {
-        console.log(sugerencias.length);
-        return sugerencias.length;
-    }*/
+
+    static fetchOne(id) {
+        return db.execute('SELECT * FROM sugerencias WHERE id=?', [id]);
+    }
 
 }

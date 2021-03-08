@@ -1,5 +1,20 @@
 const Sugerencia = require('../models/sugerencia');
 
+exports.getSugerencia = (request, response, next) => {
+        const id = request.params.sugerencia_id;
+        Sugerencia.fetchOne(id)
+            .then(([rows, fieldData]) => {
+                response.render('sugerencia-especifica', { 
+                    historial_sugerencias: rows,
+                    //isLoggedIn: request.session.isLoggedIn === true ? true : false
+                    isLoggedIn: true
+                });
+            })
+            .catch(err => {
+                console.log(err);
+            });
+    };
+
 exports.getNuevaSugerencia = (request, response, next) => {
     response.render('mandar_sugerencia',{
         isLoggedIn: request.session.isLoggedIn === true ? true : false
@@ -25,20 +40,13 @@ exports.getHistorialSugerencias = (request, response, next) => {
     console.log(request.cookies);
     console.log(request.cookies.ultima_sugerencia);
 
+    
     Sugerencia.fetchAll()
         .then(([rows, fieldData]) => {
-            const sugerencias = [];
-            for(let sugerencia of rows){
-                console.log(sugerencia.recomendaciones);
-                sugerencias.push({
-                    recomendaciones: sugerencia.recomendaciones
-                });
-            }
-            console.log(sugerencias);
             
                 response.render('sugerencia', {
-                    historial_sugerencias: sugerencias,
-                    total: 2,
+                    historial_sugerencias: rows,
+                    total: rows.length,
                     //isLoggedIn: request.session.isLoggedIn === true ? true : false
                     isLoggedIn: true
                 });
