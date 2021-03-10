@@ -6,6 +6,7 @@ exports.getLogin = (request, response, next) => {
     
     response.render('login', {
         error: request.session.error,
+        csrfToken: request.csrfToken(),
         isLoggedIn: request.session.isLoggedIn === true ? true : false
     });
 };
@@ -52,19 +53,6 @@ exports.getLogout = (request, response, next) => {
 };
 
 exports.getRegister = (request, response, next) => {
-   /* bcrypt.compare(request.body.password, user.password)
-        .then(doMatch => {
-            if (doMatch) {
-                request.session.isLoggedIn = true;
-                request.session.user = user;
-                return request.session.save(err => {
-                    response.redirect('/');
-                });
-            }
-            response.redirect('/login');
-        }).catch(err => {
-            response.redirect('/login');
-        });*/
     response.render('register', {
         isLoggedIn: request.session.isLoggedIn === true ? true : false
     });

@@ -16,6 +16,7 @@ exports.getSugerencia = (request, response, next) => {
 
 exports.getNuevaSugerencia = (request, response, next) => {
     response.render('mandar_sugerencia',{
+        csrfToken: request.csrfToken(),
         isLoggedIn: request.session.isLoggedIn === true ? true : false
     });
 };

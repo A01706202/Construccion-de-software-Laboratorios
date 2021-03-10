@@ -6,6 +6,9 @@ const path = require('path');
 const cookieParser = require('cookie-parser');
 const session = require('express-session');
 
+const csrf = require('csurf');
+const csrfProtection = csrf();
+
 app.set('view engine', 'ejs');
 app.set('views', 'views');
 
@@ -23,6 +26,9 @@ const misUsers = require('./routes/users');
 
 
 app.use(express.static(path.join(__dirname, 'public')));
+
+app.use(csrfProtection);
+
 
 //Middleware
 app.use((request, response, next) => {
