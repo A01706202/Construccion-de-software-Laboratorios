@@ -12,7 +12,7 @@ exports.getSugerencia = (request, response, next) => {
             .catch(err => {
                 console.log(err);
             });
-    };
+};
 
 exports.getNuevaSugerencia = (request, response, next) => {
     response.render('mandar_sugerencia',{

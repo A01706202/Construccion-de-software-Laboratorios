@@ -2,7 +2,10 @@
 
 <main>
     <h1><ul>Inicia sesión</ul></h1> 
-    <br> 
+    <% if (error) { %>
+        <span style="color:red"></span><%= error %></span>
+    <% } %>
+    <br><br> 
     <form action="/users/login" method="POST">
         Usuario<br>
         <input type="text" name="usuario"><br><br>
