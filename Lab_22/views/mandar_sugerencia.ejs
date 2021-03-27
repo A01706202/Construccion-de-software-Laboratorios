@@ -1,0 +1,16 @@
+
+<%- include('partials/head.ejs') %>
+<main>
+<h1><ul>¡Caja de sugerencias!</ul></h1> 
+<% if (isLoggedIn) { %>
+<br>Envía tus sugerencias y quejas de esta app web, nos importa su opinión c:<br><br> 
+<form action="mandar-sugerencia" method="POST">
+    <input type="hidden" name="_csrf" value="<%= csrfToken %>" >
+    <input type="text" name="opinion">
+    <input type="submit" value="Enviar">
+</form>
+<% } else { %>
+    Registrese en /users/login para acceder a este contenido.
+    <% } %>
+</main>
+<%- include('partials/footer.ejs') %>
