@@ -37,7 +37,9 @@ app.use((request, response, next) => {
 });
 
 app.get('/', (request, response, next) => {
-    response.sendFile(path.join(__dirname, 'views', 'index.html'));
+    response.render('index', {
+        isLoggedIn: request.session.isLoggedIn === true ? true : false
+    });
 });
 
 app.use('/murcielagos', misMurcielagos);
