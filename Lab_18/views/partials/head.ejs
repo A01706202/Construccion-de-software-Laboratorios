@@ -7,8 +7,12 @@
         <link href="/css/main.min.css" rel="stylesheet">       
     </head>
     <body>
+        <main>
         <% if (isLoggedIn) { %>
             <a href="/users/logout">Salir</a>
-        <% } %>
+        <% } else { %>
             <a href="/users/login">Iniciar sesión</a>  ||  <a href="/users/register">Registrarse</a>
+            
+            <% } %>
+            
         

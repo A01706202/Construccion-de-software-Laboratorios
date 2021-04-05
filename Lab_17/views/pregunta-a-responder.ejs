@@ -4,6 +4,7 @@
         </header>
         <main>
             <% if (isLoggedIn) { %>
+                <a href="../users/logout">Salir de sesión</a><br><br>
                 <h3>¿Qué ventajas tiene escribir el código SQL únicamente en la capa del modelo?</h3>
                 Es más fácil de visualizar y de corregir cuando haya un error, además le da un mejor orden a nuestro código en capas.<br><br>
 
@@ -16,7 +17,7 @@
 
 ‌
             <% } else { %>
-                    Registrese en /users/login para acceder a este contenido.
+                    Registrese <a href="../users/login">aquí</a> para acceder a este contenido.
             <% } %>
             
         </main>

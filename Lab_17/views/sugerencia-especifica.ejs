@@ -3,6 +3,7 @@
             
             <h1><ul>Sugerencia especifica<ul></h1>
             <% if (isLoggedIn) { %>
+                <a href="../users/logout">Salir de sesión</a><br><br>
                 <% if (historial_sugerencias.length > 0) { %>
                     <ul>
                         <% for (let opinion of historial_sugerencias) { %>
@@ -15,7 +16,7 @@
                 <% } %>
 
             <% } else { %>
-                Registrese en /users/login para acceder a este contenido.
+                Registrese <a href="../users/login">aquí</a> para acceder a este contenido.
             <% } %>
         </main>
 <%- include('partials/footer.ejs') %>
