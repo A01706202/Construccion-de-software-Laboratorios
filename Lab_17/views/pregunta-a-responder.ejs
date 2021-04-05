@@ -1,8 +1,7 @@
 <%- include('partials/head.ejs') %>
-        <header>
+        
             <ul><h1>Pregunta a responder</h1></ul>
-        </header>
-        <main>
+        
             <% if (isLoggedIn) { %>
                 <a href="../users/logout">Salir de sesión</a><br><br>
                 <h3>¿Qué ventajas tiene escribir el código SQL únicamente en la capa del modelo?</h3>
@@ -20,5 +19,5 @@
                     Registrese <a href="../users/login">aquí</a> para acceder a este contenido.
             <% } %>
             
-        </main>
+        
 <%- include('partials/footer.ejs') %>
