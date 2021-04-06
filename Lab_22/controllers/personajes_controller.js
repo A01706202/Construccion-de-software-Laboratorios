@@ -24,12 +24,20 @@ exports.getNuevoPersonaje = (request, response, next) => {
 };
 
 exports.postNuevoPersonaje = (request, response, next) => {
-    const nuevo_personaje = new Personaje(request.body.name, request.body.videogame, request.body.image);
     console.log(request.body.name);
+    const imagen = request.file;
+    console.log(imagen);
+
+    if(!imagen) {
+        console.error('Error al subir la imagen');
+        return response.status(422).redirect('/');
+    }
+    const nuevo_personaje = new Personaje(request.body.name, request.body.videogame, imagen.filename);
+    
     nuevo_personaje.save()
     .then(() => {
         response.setHeader('Set-Cookie', ['nuevo_personaje='+nuevo_personaje.name+'; HttpOnly']);
-        response.redirect('/');
+        response.redirect('/lista-personajes');
         })
     .catch(err => console.log(err));
 };

@@ -2,12 +2,25 @@
         
             <% if (isLoggedIn) { %>
                 <% if (historial_personajes.length > 0) { %>
-                    <ul>
+                    
                         <% for (let character of historial_personajes) { %>
-                            
-                            <li><%= character.nombre %></li><br>
+                            <div class="columns">
+                                <div class="column">
+                                    <br><br>
+                                    <%= character.nombre %>
+                                </div>
+                                <div class="column">
+                                    <br><br>
+                                    <%= character.videojuego %>
+                                </div>
+                                <div class="column">
+                                    <figure class="image is-128x128">
+                                        <img class="is-rounded" src="<%= character.foto %>">
+                                    </figure>
+                                </div>
+                            </div>
                         <% } %>
-                    </ul>
+                    
                 <% } else { %>
                     <h3>No hay nada</h3>
                 <% } %>
