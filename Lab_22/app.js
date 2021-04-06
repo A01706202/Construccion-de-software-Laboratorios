@@ -23,6 +23,7 @@ app.use(session({
 const misMurcielagos = require('./routes/murcielagos');
 const misExtra = require('./routes/extra');
 const misUsers = require('./routes/users');
+const misPersonajes = require('./routes/personajes');
 
 
 app.use(express.static(path.join(__dirname, 'public')));
@@ -44,6 +45,7 @@ app.get('/', (request, response, next) => {
 
 app.use('/murcielagos', misMurcielagos);
 app.use('/extra', misExtra);
+app.use('/personajes', misPersonajes);
 app.use('/users/', misUsers);
 
 app.use((request, response, next) => {

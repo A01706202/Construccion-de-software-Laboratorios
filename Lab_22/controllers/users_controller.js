@@ -6,8 +6,10 @@ exports.getLogin = (request, response, next) => {
     
     
     response.render('login', {
+        titulo: "Iniciar sesión",
         error: request.session.error,
         csrfToken: request.csrfToken(),
+        
         isLoggedIn: request.session.isLoggedIn === true ? true : false
     });
 };
@@ -18,7 +20,7 @@ exports.postLogin = (request, response, next) => {
     console.log(username);
         Usuario.fetchOne(username)
             .then(([rows, fieldData]) => {
-                if (rows.length < 0) {
+                if (rows.length < 1) {
                     request.session.error = "El usuario y/o contraseña no coinciden";
                     response.redirect('/users/login');
                 } else {
@@ -57,6 +59,7 @@ exports.getLogout = (request, response, next) => {
 
 exports.getRegister = (request, response, next) => {
     response.render('register', {
+        titulo: "Registrar",
         isLoggedIn: request.session.isLoggedIn === true ? true : false
     });
 };

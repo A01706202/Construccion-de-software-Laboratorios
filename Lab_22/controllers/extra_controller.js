@@ -6,6 +6,7 @@ exports.getSugerencia = (request, response, next) => {
             .then(([rows, fieldData]) => {
                 response.render('sugerencia-especifica', { 
                     historial_sugerencias: rows,
+                    titulo: "Sugerencia específica",
                     isLoggedIn: request.session.isLoggedIn === true ? true : false
                 });
             })
@@ -16,6 +17,7 @@ exports.getSugerencia = (request, response, next) => {
 
 exports.getNuevaSugerencia = (request, response, next) => {
     response.render('mandar_sugerencia',{
+        titulo: "¡Caja de sugerencias!",
         csrfToken: request.csrfToken(),
         isLoggedIn: request.session.isLoggedIn === true ? true : false
     });
@@ -45,6 +47,7 @@ exports.getHistorialSugerencias = (request, response, next) => {
         .then(([rows, fieldData]) => {
             
                 response.render('sugerencia', {
+                    titulo: "Historial de sugerencias",
                     historial_sugerencias: rows,
                     total: rows.length,
                     isLoggedIn: request.session.isLoggedIn === true ? true : false
@@ -57,6 +60,7 @@ exports.getHistorialSugerencias = (request, response, next) => {
 
 exports.getPreguntaResponder = (request, response, next) => {
     response.render('pregunta-a-responder', {
+        titulo: "Pregunta a responder",
         isLoggedIn: request.session.isLoggedIn === true ? true : false
     });
 };

@@ -1,16 +1,15 @@
 <%- include('partials/head.ejs') %>
         
-            
             <% if (isLoggedIn) { %>
-                <% if (historial_sugerencias.length > 0) { %>
+                <% if (historial_personajes.length > 0) { %>
                     <ul>
-                        <% for (let opinion of historial_sugerencias) { %>
+                        <% for (let character of historial_personajes) { %>
                             
-                            <li><%= opinion.recomendacion %></li><br>
+                            <li><%= character.nombre %></li><br>
                         <% } %>
                     </ul>
                 <% } else { %>
-                    <h3>No hay sugerencias</h3>
+                    <h3>No hay nada</h3>
                 <% } %>
 
             <% } else { %>
