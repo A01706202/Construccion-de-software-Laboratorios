@@ -37,7 +37,7 @@ exports.postNuevoPersonaje = (request, response, next) => {
     nuevo_personaje.save()
     .then(() => {
         response.setHeader('Set-Cookie', ['nuevo_personaje='+nuevo_personaje.name+'; HttpOnly']);
-        response.redirect('/lista-personajes');
+        response.redirect('/personajes/lista-personajes');
         })
     .catch(err => console.log(err));
 };
@@ -48,7 +48,7 @@ exports.getPersonajesEnviados = (request, response, next) => {
 
     //Con cookie-parser
     console.log(request.cookies);
-    console.log(request.cookies.ultimo_personaje);
+    //console.log(request.cookies.ultimo_personaje);
 
     
     Personaje.fetchAll()
