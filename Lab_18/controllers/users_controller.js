@@ -58,18 +58,18 @@ exports.getLogout = (request, response, next) => {
 
 exports.getRegister = (request, response, next) => {
     response.render('register', {
+        csrfToken: request.csrfToken(),
         isLoggedIn: request.session.isLoggedIn === true ? true : false
     });
 };
 
 exports.postRegister = (request, response, next) => {
-    const nueva_usuario = new Usuario(request.body.nombre, request.body.usuario, request.body.password);
-    console.log(request.body.opinion);
-    nueva_usuario.save()
+
+    const nuevo_usuario = new Usuario(request.body.usuario, request.body.nombre, request.body.password);    
+    nuevo_usuario.save()
     .then(() => {
         request.session.isLoggedIn = true;
         request.session.usuario = request.body.usuario;
         response.redirect('/');
-        })
-    .catch(err => console.log(err));
+    }).catch(err => console.log(err));
 };

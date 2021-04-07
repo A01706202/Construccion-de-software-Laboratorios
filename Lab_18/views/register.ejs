@@ -4,6 +4,7 @@
     <h1><ul>Registro</ul></h1> 
     <br> 
     <form action="/users/register" method="POST">
+        <input type="hidden" name="_csrf" value="<%= csrfToken %>" >
         Nombre<br>
         <input type="text" name="nombre" required><br><br>
         Nombre de usuario<br>
@@ -13,5 +14,5 @@
         
         <input class="button" type="submit" value="Ingresar">
     </form>
-    </main>
+</main>
 <%- include('partials/footer.ejs') %>

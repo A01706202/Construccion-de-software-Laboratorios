@@ -1,7 +1,7 @@
 const express = require('express');
-const app = express();
 const bodyParser = require('body-parser');
 const path = require('path');
+const app = express();
 
 const cookieParser = require('cookie-parser');
 const session = require('express-session');
@@ -12,18 +12,18 @@ const csrfProtection = csrf();
 app.set('view engine', 'ejs');
 app.set('views', 'views');
 
+const misMurcielagos = require('./routes/murcielagos');
+const misExtra = require('./routes/extra');
+const misUsers = require('./routes/users');
+
 app.use(bodyParser.urlencoded({extended: false}));
 app.use(cookieParser());
+
 app.use(session({
     secret: 'me gustan mucho los gatos', 
     resave: false, //La sesión no se guardará en cada petición, sino sólo se guardará si algo cambió 
     saveUninitialized: false, //Asegura que no se guarde una sesión para una petición que no lo necesita
 }));
-
-const misMurcielagos = require('./routes/murcielagos');
-const misExtra = require('./routes/extra');
-const misUsers = require('./routes/users');
-
 
 app.use(express.static(path.join(__dirname, 'public')));
 

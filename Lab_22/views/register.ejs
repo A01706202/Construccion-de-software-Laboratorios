@@ -2,6 +2,7 @@
 
     
     <form action="/users/register" method="POST">
+        <input type="hidden" name="_csrf" value="<%= csrfToken %>" >
         Nombre<br>
         <input type="text" name="nombre" required><br><br>
         Nombre de usuario<br>

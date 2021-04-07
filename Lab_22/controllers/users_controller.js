@@ -60,6 +60,7 @@ exports.getLogout = (request, response, next) => {
 exports.getRegister = (request, response, next) => {
     response.render('register', {
         titulo: "Registrar",
+        csrfToken: request.csrfToken(),
         isLoggedIn: request.session.isLoggedIn === true ? true : false
     });
 };

@@ -16,11 +16,9 @@ module.exports = class User {
             .then((password_encriptado) => {
                 return db.execute(
                     'INSERT INTO usuarios (username, nombre, password) VALUES (?, ?, ?)',
-                    [this.username, this.nombre,password_encriptado]
+                    [this.username, this.nombre, password_encriptado]
                 );
             }).catch(err => console.log(err));
-        return 
-        
     }
 
     //Este método servirá para devolver los objetos del almacenamiento persistente.
