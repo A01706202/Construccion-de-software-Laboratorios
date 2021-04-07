@@ -1,0 +1,16 @@
+<%- include('partials/head.ejs') %>
+
+    
+    <form action="/users/register" method="POST">
+        <input type="hidden" name="_csrf" value="<%= csrfToken %>" >
+        Nombre<br>
+        <input type="text" name="nombre" required><br><br>
+        Nombre de usuario<br>
+        <input type="text" name="usuario" required><br><br>
+        Contraseña<br>
+        <input type="password" name="password" required><br>
+        
+        <input class="button" type="submit" value="Ingresar">
+    </form>
+    </main>
+<%- include('partials/footer.ejs') %>

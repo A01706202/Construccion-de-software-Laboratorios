@@ -1,0 +1,16 @@
+<%- include('partials/head.ejs') %>
+
+    <% if (error) { %>
+        <span style="color:red"><%= error %></span><br>
+    <% } %>
+    <br> 
+    <form action="/users/login" method="POST">
+        <input type="hidden" name="_csrf" value="<%= csrfToken %>" > 
+        Usuario<br>
+        <input type="text" name="usuario"><br><br>
+        Contraseña<br>
+        <input type="password" name="password"><br><br>
+        <input class="button" type="submit" value="Ingresar">
+    </form>
+    
+<%- include('partials/footer.ejs') %>

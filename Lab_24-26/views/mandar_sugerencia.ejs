@@ -1,0 +1,15 @@
+
+<%- include('partials/head.ejs') %>
+
+<% if (isLoggedIn) { %>
+<br>Envía tus sugerencias y quejas de esta app web, nos importa su opinión c:<br><br> 
+<form action="mandar-sugerencia" method="POST">
+    <input type="hidden" name="_csrf" value="<%= csrfToken %>" >
+    <input type="text" name="opinion"><br>
+    <input class="button" type="submit" value="Enviar">
+</form>
+<% } else { %>
+    Registrese <a href="../users/login">aquí</a> para acceder a este contenido.
+<% } %>
+
+<%- include('partials/footer.ejs') %>

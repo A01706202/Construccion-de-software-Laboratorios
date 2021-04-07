@@ -1,0 +1,34 @@
+<%- include('partials/head.ejs') %>
+        
+            
+            <% if (isLoggedIn) { %>
+                <% if (historial_personajes.length > 0) { %>
+                    
+                        <% for (let character of historial_personajes) { %>
+                            <div class="columns">
+                                <div class="column">
+                                    <br><br>
+                                    <%= character.nombre %>
+                                </div>
+                                <div class="column">
+                                    <br><br>
+                                    <%= character.videojuego %>
+                                </div>
+                                <div class="column">
+                                    <figure class="image is-128x128">
+                                        <img class="is-rounded" src="../uploads/<%= character.foto %>">
+                                    </figure>
+                                </div>
+                            </div>
+                            
+                        <% } %>
+                    </ul>
+                <% } else { %>
+                    <h3>Aún no hay personajes</h3>
+                <% } %>
+                
+            <% } else { %>
+                Registrese <a href="../users/login">aquí</a> para acceder a este contenido.
+            <% } %>
+        
+<%- include('partials/footer.ejs') %>
