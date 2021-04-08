@@ -1,7 +1,7 @@
 const express = require('express');
-const app = express();
 const bodyParser = require('body-parser');
 const path = require('path');
+const app = express();
 
 const cookieParser = require('cookie-parser');
 
@@ -42,10 +42,11 @@ app.use(multer(
     { storage: fileStorage }
     ).single('image'));
 
+    //Para acceder a los recursos de la carpeta uploads
+app.use(express.static(path.join(__dirname, 'uploads')));
 app.use(express.static(path.join(__dirname, 'public')));
 
-//Para acceder a los recursos de la carpeta uploads
-app.use(express.static(path.join(__dirname, 'uploads')));
+
 
 app.use(cookieParser());
 app.use(session({
