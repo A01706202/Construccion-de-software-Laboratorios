@@ -19,6 +19,7 @@ const misUsers = require('./routes/users');
 const misPersonajes = require('./routes/personajes');
 
 app.use(bodyParser.urlencoded({extended: false}));
+app.use(bodyParser.json());
 
 const multer = require('multer');
 //fileStorage: Es nuestra constante de configuración para manejar el almacenamiento

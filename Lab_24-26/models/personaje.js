@@ -25,4 +25,8 @@ module.exports = class Personaje {
         return db.execute('SELECT * FROM personaje WHERE id=?', [id]);
     }
 
+    static fetchByName(nombre) {
+        return db.execute("SELECT * FROM `personaje` WHERE `nombre` LIKE ? ", ['%'+nombre+'%']);
+    }
+
 }

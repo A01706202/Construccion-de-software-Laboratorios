@@ -55,10 +55,25 @@ exports.getPersonajesEnviados = (request, response, next) => {
         .then(([rows, fieldData]) => {          
                 response.render('personaje', {
                     titulo: "Personajes enviados",
+                    csrfToken: request.csrfToken(),
                     historial_personajes: rows,
                     isLoggedIn: request.session.isLoggedIn === true ? true : false
                 });
             })
+        .catch(err => {
+            console.log(err);
+        });
+};
+
+exports.postBuscar = (request, response, next) => {
+    console.log(request.body);
+    console.log(request.body.valor_busqueda);
+    const name = request.body.valor_busqueda;
+    Personaje.fetchByName(name)
+        .then(([rows, fieldData]) => {
+            console.log(rows);
+            response.status(200).json(rows);
+        })
         .catch(err => {
             console.log(err);
         });

@@ -1,34 +1,87 @@
 <%- include('partials/head.ejs') %>
         
             
-            <% if (isLoggedIn) { %>
-                <% if (historial_personajes.length > 0) { %>
-                    
-                        <% for (let character of historial_personajes) { %>
-                            <div class="columns">
-                                <div class="column">
-                                    <br><br>
-                                    <%= character.nombre %>
-                                </div>
-                                <div class="column">
-                                    <br><br>
-                                    <%= character.videojuego %>
-                                </div>
-                                <div class="column">
-                                    <figure class="image is-128x128">
-                                        <img class="is-rounded" src="../uploads/<%= character.foto %>">
-                                    </figure>
-                                </div>
-                            </div>
-                            
-                        <% } %>
-                    </ul>
-                <% } else { %>
-                    <h3>Aún no hay personajes</h3>
-                <% } %>
-                
-            <% } else { %>
-                Registrese <a href="../users/login">aquí</a> para acceder a este contenido.
-            <% } %>
+    <% if (isLoggedIn) { %>
+         Buscar<br>
+        <input type="hidden" id="_csrf" name="_csrf" value="<%= csrfToken %>">
+        <input type="text" name="buscar" id="buscar" onkeyup="buscar()">
         
+        <% if (historial_personajes.length > 0) { %>
+            <div id="resultados">      
+            <% for (let character of historial_personajes) { %>
+                <div class="columns">
+                    <div class="column">
+                        <br><br>
+                        <%= character.nombre %>
+                    </div>
+                    <div class="column">
+                        <br><br>
+                        <%= character.videojuego %>
+                    </div>
+                    <div class="column">
+                        <figure class="image is-128x128">
+                            <img class="is-rounded" src="<%= character.foto %>">
+                        </figure>
+                    </div>
+                </div>      
+            <% } %>    
+            </div>  
+        <% } else { %>
+            <h3>Aún no hay personajes</h3>
+        <% } %>
+                
+    <% } else { %>
+        Registrese <a href="../users/login">aquí</a> para acceder a este contenido.
+    <% } %>
+
 <%- include('partials/footer.ejs') %>
+
+<script>
+      function buscar() {
+        const valor_busqueda = document.getElementById("buscar").value;
+    
+        //El token de protección CSRF
+        const csrf = document.getElementById('_csrf').value;
+        
+        let data = {valor_busqueda: valor_busqueda};
+        console.log(valor_busqueda);
+
+        //función que manda la petición asíncrona
+        fetch('/personajes/lista-personajes/buscar', {
+            method: 'POST',
+            body: JSON.stringify(data),
+            headers: {
+                'csrf-token': csrf,
+                'Content-Type': 'application/json'
+              },
+            body: JSON.stringify(valor_busqueda)
+        }).then(result => {
+            return result.json(); //Regresa otra promesa
+        }).then(data => {
+            //Modificamos el DOM de nuestra página de acuerdo a los datos de la segunda promesa
+            console.log(data);
+            let html = '';
+            for (let character of data) {
+                html += '<div class="columns">' +
+                            '<div class="column">' +
+                                '<br><br>' +
+                                character.nombre +
+                            '</div>' +
+                            '<div class="column">' +
+                                '<br><br>' +
+                                character.videojuego +  
+                            '</div>' +
+                            '<div class="column">' +
+                                '<figure class="image is-128x128">' +
+                                    '<img class="is-rounded" src="'+ character.foto +'">' +
+                                '</figure>' +
+                            '</div>' +
+                        '</div>';
+            }
+            document.getElementById("resultados").innerHTML = html;
+
+        }).catch(err => {
+            console.error(err);
+        });
+      }
+</script>
