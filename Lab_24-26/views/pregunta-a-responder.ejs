@@ -1,12 +1,12 @@
 <%- include('partials/head.ejs') %>
-        
-<%if (isLoggedIn) { %>
+
     <br>
     <h3 class="subtitle is-4 h3">¿Qué importancia tiene AJAX en el desarrollo de RIA's (Rich Internet Applications)?</h3>
-    
+    Optimiza RICH y las respuestas y peticiones son mucho más rápidas.
 
     <br><br>
     <h3 class="subtitle is-4 h3">¿Qué implicaciones de seguridad tiene AJAX? ¿Dónde se deben hacer las validaciones de seguridad, del lado del cliente o del lado del servidor?</h3>
+    Se tienen que hacer del lado del servidor.
 
     <br><br>
     <h3 class="subtitle is-4 h3">¿Qué es JSON?</h3>
@@ -14,25 +14,48 @@
 
     <br><br>
     <h3 class="subtitle is-4 h3">Elabora un diagrama y explica cómo funciona AJAX.</h3>
+    <figure>
+        <img src="../AJAX.png">
+    </figure>
+    <br><br> 
+    Primero el navegador crea una llamada de JavaScript que luego activará XMLHttpRequest, después el navegador web crea una solicitud HTTP al servidor, luego el servidor recibe, recupera y envía los datos al navegador web, y al final el navegador web recibe los datos solicitados que aparecerán directamente en la página.
 
     <br><br>
     <h3 class="subtitle is-4 h3">¿Qué alternativas a jQuery existen?</h3>
+    <strong>XUI:</strong> Se enfoca para la creación y el desarrollo de las aplicaciones para teléfonos inteligentes e incluye una biblioteca con distintos métodos.<br>
+    <strong>Umbrella JS:</strong> Propuesta desarrollada de manera ligera lo que hace que cargue rápido en cualquier plataforma.<br>
+    <strong>140medley:</strong> Súper ligero y permite la compatibilidad del sistema de plantillas.<br>
+    <strong>Snack Js:</strong> Librerías pequeñas, sencilla y simplificada.<br>
+    <strong>Sizzle:</strong> No requiere de ningún elemento del cuál depender para funcionar y contiene una API incorporada realmente potente, lo que puede extenderse de acuerdo a las necesidades.<br>
+    <strong>Qwery:</strong> Para seleccionar ciertos elementos DOM y es bastante simplificada.<br>
+    <strong>$dom:</strong> Pequeño, compatible con los distintos navegadores y con las animaciones preseleccionadas, pero omite por completo las manipulaciones y funciones para Ajax y Arrrays.
 
     <br><br>
     <h3 class="subtitle is-4 h3">¿Qué es una promesa en js?</h3>
+    Es un objeto que representa la terminación o el fracaso de una operación asíncrona.
 
     <br><br>
     <h3 class="subtitle is-4 h3">¿Cómo funcionan async y await?</h3>
+    Las funciones asíncronas proveen una sintaxis más limpia y concisa que nos permite escribir menos código para lograr lo mismo que lo que lograríamos con promesas.<br>
+    Con la palabra "async" se crean estas funciones poniendo la esta palabra antes de la declaración de la función.<br><br>
+
+    const asyncFunction = async () => {<br>
+        // Código<br>
+    }<br><br>
+
+    Con "await" se pueden pausar estas funciones, la palabra clave que se usa dentro de las funciones asíncronas, await regresa lo que la función regresa cuando se realiza.
 
     <br><br><br>
     <h3 class="subtitle is-4 h3">Bibliografía</h3>
-    victor garibay cadenas. (2016, July 17). “JSON marcando tendencias” - victor garibay cadenas - Medium. Medium; Medium. <a href="https://medium.com/@victor.garibayy/qu%C3%A9-es-y-para-qu%C3%A9-sirve-json-be05fe02e67d">Link</a><br><br>
-
-‌
+    <li>victor garibay cadenas. (2016, July 17). “JSON marcando tendencias” - victor garibay cadenas - Medium. Medium; Medium. <a href="https://medium.com/@victor.garibayy/qu%C3%A9-es-y-para-qu%C3%A9-sirve-json-be05fe02e67d">Link.</a></li><br>
     
-<% } else { %>
-    Registrese <a href="../users/login">aquí</a> para acceder a este contenido.
-<% } %>
+    <li>B, G. (2019, May 9). ¿Qué es AJAX y cómo funciona? Tutoriales Hostinger; Tutoriales Hostinger. <a href="https://www.hostinger.mx/tutoriales/que-es-ajax#Como-funciona-AJAX">Link.</a></li><br>
+
+    <li>Usar promesas - JavaScript | MDN. (2021, April 7). Mozilla.org. <a href="https://developer.mozilla.org/es/docs/Web/JavaScript/Guide/Using_promises">Link.</a></li><br>
+
+    <li>Colmenares, M. (2020, January 23). 10 Alternativas A jQuery. Curiosidades; Curiosidades. <a href="https://curiosidades.top/10-alternativas-a-jquery/">Link.</a></li><br>
+
+    <li>Hajdin, A. (2019, January 8). How To Master Async/Await With This Real World Example. Medium; freeCodeCamp.org. <a href="https://medium.com/free-code-camp/how-to-master-async-await-with-this-real-world-example-19107e7558ad">Link.</a></li>
             
         
 <%- include('partials/footer.ejs') %>

@@ -37,7 +37,7 @@ exports.postNuevoPersonaje = (request, response, next) => {
     nuevo_personaje.save()
     .then(() => {
         response.setHeader('Set-Cookie', ['nuevo_personaje='+nuevo_personaje.name+'; HttpOnly']);
-        response.redirect('/personajes/lista-personajes');
+        response.redirect('/personajes');
         })
     .catch(err => console.log(err));
 };
