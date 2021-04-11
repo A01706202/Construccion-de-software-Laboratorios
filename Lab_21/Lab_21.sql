@@ -112,6 +112,5 @@ and Denominacion = 'CIT Yucatan')
 al promedio de la cantidad entregada por el proveedor con el RFC 'VAGO780901'. */
 
 
-
 /* 5) RFC, razón social de los proveedores que participaron en el proyecto 'Infonavit Durango' y cuyas cantidades 
 totales entregadas en el 2000 fueron mayores a las cantidades totales entregadas en el 2001. */
