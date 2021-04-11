@@ -1,6 +1,6 @@
 /*	Parte 1 - Consulta con funciones agregadas
 
-Materiales(Clave, Descripción, Costo, PorcentajeImpuesto)
+Materiales(Clave, Descripción, Precio, PorcentajeImpuesto)
 Proveedores(RFC, RazonSocial)
 Proyectos(Numero, Denominacion)
 Entregan(Clave, RFC, Numero, Fecha, Cantidad)
@@ -10,7 +10,7 @@ Entregan(Clave, RFC, Numero, Fecha, Cantidad)
 
 --Producto 15 pesos		impuesto 10% ->  15 + 15 * .1
 
-select sum(Cantidad) as 'Suma de cantidades', sum(Cantidad * (Costo + Costo * PorcentajeImpuesto/100)) as 'Ingresos totales'
+select sum(Cantidad) as 'Suma de cantidades', sum(Cantidad * (Precio + Precio * PorcentajeImpuesto/100)) as 'Ingresos totales'
 from Entregan E, Materiales M
 where E.clave=M.clave and YEAR(E.Fecha)=1997
 
@@ -18,7 +18,7 @@ where E.clave=M.clave and YEAR(E.Fecha)=1997
 
 /* 2) Para cada proveedor, obtener la razón social del proveedor, número de entregas e importe total de las entregas realizadas. */
 
-select RazonSocial, count(*) as 'Numero de entregas', sum(Cantidad * (Costo + Costo * PorcentajeImpuesto/100)) as 'Ingresos totales'
+select RazonSocial, count(*) as 'Numero de entregas', sum(Cantidad * (Precio + Precio * PorcentajeImpuesto/100)) as 'Ingresos totales'
 from Proveedores P, Entregan E, Materiales M
 where E.RFC=P.RFC and M.clave=E.clave
 group by RazonSocial
@@ -31,7 +31,7 @@ la máxima cantidad entregada, el importe total de las entregas de aquellos mate
 sea mayor a 400. */
 
 select M.Clave, Descripcion, sum(Cantidad) as 'Cantidad total',  min(Cantidad) as 'Cantidad mínima', max(Cantidad) as 'Cantidad máxima',
-sum(Cantidad * (Costo + Costo * PorcentajeImpuesto/100)) as 'Ingresos totales'
+sum(Cantidad * (Precio + Precio * PorcentajeImpuesto/100)) as 'Ingresos totales'
 from Materiales M, Entregan E
 where M.clave=E.clave 
 group by M.Clave, Descripcion
@@ -94,6 +94,7 @@ select RazonSocial
 from Proveedores P, Proyectos PR, Entregan E
 where E.Numero = PR.Numero and E.RFC = P.RFC
 and Denominacion = 'Vamos México'
+
 
 /* 3) Descripción de los materiales que nunca han sido entregados al proyecto 'CIT Yucatán'. */
 

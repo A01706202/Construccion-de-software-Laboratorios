@@ -62,7 +62,7 @@ select * from Entregan, Materiales
 /*	Construcción de consultas a partir de una especificación	*/
 -- Plantea ahora una consulta para obtener las descripciones de los materiales entregados en el año 2000.
 
-/* Para SQL server */
+/* Para SQL Server */
 set dateformat dmy
 
 select descripcion
@@ -70,7 +70,7 @@ from Entregan, Materiales
 where fecha>='01/01/00'
 AND fecha<'01/01/01'
 
-/* Para mySql */
+/* Para MySQL */
 select descripcion from Entregan, Materiales where fecha>='2000/01/01' AND fecha<'2001/01/01'
 
 -- ¿Por qué aparecen varias veces algunas descripciones de material?
@@ -224,9 +224,9 @@ group by Descripcion
 
 
 
-/*	Creaci�n de vistas	*/
---Comprueba lo anterior, creando vistas para cinco de las consultas que planteaste anteriormente en la pr�ctica. 
---Posteriormente revisa cada vista creada para comprobar que devuelve el mismo resultado.
+/*	Creación de vistas	*/
+-- Comprueba lo anterior, creando vistas para cinco de las consultas que planteaste anteriormente en la práctica. 
+-- Posteriormente revisa cada vista creada para comprobar que devuelve el mismo resultado.
 
 /* 1)
 SELECT RFC, Cantidad, Fecha, Numero
@@ -294,7 +294,7 @@ from Entregan, Materiales
 where fecha>='01/01/00'
 AND fecha<'01/01/01'
 */
-/* En Sql server */
+/* En SQL Server */
 set dateformat dmy
 
 create view Consulta6(Descripcion, Fecha) as
@@ -306,7 +306,7 @@ select distinct descripcion
 from Consulta6
 where fecha<'01/01/01'
 
-/* En mySql */
+/* En MySQL */
 
 create view Consulta6(Descripcion, Fecha) as
 select distinct descripcion, Fecha
@@ -359,7 +359,7 @@ group by Descripcion
 
 -- La Clave del material más vendido durante el 2001. (se recomienda usar una vista intermedia para su solución).
 
-/* En Sql server */
+/* En SQL Server */
 select top 1 Materiales.clave
 from Materiales, Entregan
 where YEAR(Entregan.Fecha) = 2001 and 
@@ -421,7 +421,7 @@ order by RFC desc
 -- Costo de los materiales y los Materiales que son entregados al proyecto Televisa en acción cuyos proveedores 
 -- también suministran materiales al proyecto Educando en Coahuila.
 
-select  M.Costo, M.Descripcion
+select  M.Precio, M.Descripcion
 from Proveedores P, Proyectos PR, Entregan E, Materiales M
 where E.RFC = P.RFC and E.Numero = PR.Numero and M.Clave = E.Clave
 and Denominacion = 'Televisa en acción'
