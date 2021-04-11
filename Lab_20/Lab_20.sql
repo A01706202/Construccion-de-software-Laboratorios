@@ -3,48 +3,48 @@ SELECT * from Materiales
 
 
 
-/*	Selección	*/
+/*	Selecciï¿½n	*/
 select * from Materiales
 where clave=1000
 
 
 
-/*	Proyección	*/
+/*	Proyecciï¿½n	*/
 select clave,rfc,fecha from Entregan
 
 
 
-/*	Reunión natural	*/
+/*	Reuniï¿½n natural	*/
 select * from Materiales, Entregan
 where Materiales.clave = Entregan.clave
 
--- Si algún material no ha se ha entregado ¿Aparecería en el resultado de esta consulta? 
---No, porque en la instrucción con el "=" indica que solo se seleccionaran donde salgan las claves en entregan y en materiales
+--    Si algï¿½n material no ha se ha entregado ï¿½Aparecerï¿½a en el resultado de esta consulta? 
+-- No, porque en la instrucciï¿½n con el "=" indica que solo se seleccionaran donde salgan las claves en entregan y en materiales
 
 
 
-/*	Reunión con criterio específico	*/
+/*	Reuniï¿½n con criterio especï¿½fico	*/
 select * from Entregan, Proyectos
 where Entregan.numero < = Proyectos.numero
 
 
 
-/*	Unión (se ilustra junto con selección)	*/
+/*	Uniï¿½n (se ilustra junto con selecciï¿½n)	*/
 (select * from Entregan where clave=1450) union (select * from Entregan where clave=1300)
 
---¿Cuál sería una consulta que obtuviera el mismo resultado sin usar el operador Unión? Compruébalo.
+-- ï¿½Cuï¿½l serï¿½a una consulta que obtuviera el mismo resultado sin usar el operador Uniï¿½n? Compruï¿½balo.
 select * from Entregan 
 where clave=1450 or clave=1300
 
 
 
-/*	Intersección (se ilustra junto con selección y proyección)	*/
+/*	Intersecciï¿½n (se ilustra junto con selecciï¿½n y proyecciï¿½n)	*/
 (select clave from Entregan where numero=5001) intersect (select clave from Entregan where numero=5018)
 
 
 
-/*	Diferencia (se ilustra con selección)	*/
---"minus" es una palabra reservada que no está definida en SQL Server, define una consulta que regrese el mismo resultado.
+/*	Diferencia (se ilustra con selecciï¿½n)	*/
+-- "minus" es una palabra reservada que no estï¿½ definida en SQL Server, define una consulta que regrese el mismo resultado.
 select * from Entregan 
 except
 select * from Entregan where clave=1000
@@ -54,13 +54,13 @@ select * from Entregan where clave=1000
 /*	Producto cartesiano	*/
 select * from Entregan, Materiales
 
--- ¿Cómo está definido el número de tuplas de este resultado en términos del número de tuplas de entregan y de materiales?
---Son el resultado del punto cartesiano entre la tabla Entregan y Materiales.
+-- ï¿½Cï¿½mo estï¿½ definido el nï¿½mero de tuplas de este resultado en tï¿½rminos del nï¿½mero de tuplas de entregan y de materiales?
+--    Son el resultado del punto cartesiano entre la tabla Entregan y Materiales.
 
 
 
-/*	Construcción de consultas a partir de una especificación	*/
--- Plantea ahora una consulta para obtener las descripciones de los materiales entregados en el año 2000.
+/*	Construcciï¿½n de consultas a partir de una especificaciï¿½n	*/
+-- Plantea ahora una consulta para obtener las descripciones de los materiales entregados en el aï¿½o 2000.
 set dateformat dmy
 
 select descripcion
@@ -68,7 +68,7 @@ from Entregan, Materiales
 where fecha>='01/01/00'
 AND fecha<'01/01/01'
 
--- ¿Por qué aparecen varias veces algunas descripciones de material?
+-- ï¿½Por quï¿½ aparecen varias veces algunas descripciones de material?
 --Por el producto cartesiano que se produce al seleccionar las dos tablas.
 
 
@@ -82,15 +82,15 @@ from Entregan, Materiales
 where fecha>='01/01/00'
 AND fecha<'01/01/01'
 
--- ¿Qué resultado obtienes en esta ocasión?
+-- ï¿½Quï¿½ resultado obtienes en esta ocasiï¿½n?
 --Ya no se repiten las descripciones
 
 
 
 /*	Ordenamientos	*/
 
---	Obtén los números y denominaciones de los proyectos con las fechas y cantidades de sus entregas,
---	ordenadas por número de proyecto, presentando las fechas de la más reciente a la más antigua.
+--	Obtï¿½n los nï¿½meros y denominaciones de los proyectos con las fechas y cantidades de sus entregas,
+--	ordenadas por nï¿½mero de proyecto, presentando las fechas de la mï¿½s reciente a la mï¿½s antigua.
 select Proyectos.Numero, denominacion, fecha, Cantidad
 from Entregan, Proyectos
 order by fecha desc
@@ -102,62 +102,62 @@ order by fecha desc
 SELECT * FROM Materiales 
 where Descripcion LIKE 'Si%'
 
---¿Qué resultado obtienes?
+--ï¿½Quï¿½ resultado obtienes?
 -- Las descripciones que empiezen con las letras "Si".
 
---Explica que hace el símbolo '%'.
--- Indica que hay más palabras y letras a parte de las primeras, haciendo que busque las descripciones que tengan "Si" en el principio.
+--Explica que hace el sï¿½mbolo '%'.
+-- Indica que hay mï¿½s palabras y letras a parte de las primeras, haciendo que busque las descripciones que tengan "Si" en el principio.
 
---¿Qué sucede si la consulta fuera : LIKE 'Si' ?
--- Tendría que devolver las descripciones que sean iguales a "Si".
+--ï¿½Quï¿½ sucede si la consulta fuera : LIKE 'Si' ?
+-- Tendrï¿½a que devolver las descripciones que sean iguales a "Si".
 
---¿Qué resultado obtienes?
+--ï¿½Quï¿½ resultado obtienes?
 -- Ninguno.
 
---Explica a qué se debe este comportamiento.
+--Explica a quï¿½ se debe este comportamiento.
 -- Porque no existen las descripciones que digan "Si".
 
 DECLARE @foo varchar(40);
 DECLARE @bar varchar(40);
-SET @foo = '¿Que resultado';
-SET @bar = ' ¿¿¿??? '
+SET @foo = 'ï¿½Que resultado';
+SET @bar = ' ï¿½ï¿½ï¿½??? '
 SET @foo += ' obtienes?';
 PRINT @foo + @bar;
 
---¿Qué resultado obtienes de ejecutar el siguiente código?
--- La frase "¿Que resultado obtienes? ¿¿¿???"
+--ï¿½Quï¿½ resultado obtienes de ejecutar el siguiente cï¿½digo?
+-- La frase "ï¿½Que resultado obtienes? ï¿½ï¿½ï¿½???"
 
---¿Para qué sirve DECLARE?
+--ï¿½Para quï¿½ sirve DECLARE?
 -- Para declarar variables.
 
---¿Cuál es la función de @foo?
+--ï¿½Cuï¿½l es la funciï¿½n de @foo?
 -- Es una variable de caracteres.
 
---¿Que realiza el operador SET?
+--ï¿½Que realiza el operador SET?
 -- Le agrega valores a las variables
 
 
---Ahora explica el comportamiento, función y resultado de cada una de las siguientes consultas:
+--Ahora explica el comportamiento, funciï¿½n y resultado de cada una de las siguientes consultas:
 
 SELECT RFC FROM Entregan WHERE RFC LIKE '[A-D]%';
--- Se muestra las RFC que tengan letras de entre A y D específicamente.
+-- Se muestra las RFC que tengan letras de entre A y D especï¿½ficamente.
 
 SELECT RFC FROM Entregan WHERE RFC LIKE '[^A]%';
 -- Devuelve todas las RFC que no contengan A en ninguna parte.
 
 SELECT Numero FROM Entregan WHERE Numero LIKE '___6';
--- Devuelve los numeros que terminan en 6 y que tengan tres caracteres de números antes del 6, los cuales se indican con "_".
+-- Devuelve los numeros que terminan en 6 y que tengan tres caracteres de nï¿½meros antes del 6, los cuales se indican con "_".
 
 
 
-/*	Operadores lógicos	*/
+/*	Operadores lï¿½gicos	*/
 
 SELECT Clave,RFC,Numero,Fecha,Cantidad
 FROM Entregan
 WHERE Numero Between 5000 and 5010;
 
---¿Cómo filtrarías rangos de fechas?
--- Primero se pondría el set dateformat dmy y después en el beetween ya se pondría el rango de fechas como por ejemplo 
+--ï¿½Cï¿½mo filtrarï¿½as rangos de fechas?
+-- Primero se pondrï¿½a el set dateformat dmy y despuï¿½s en el beetween ya se pondrï¿½a el rango de fechas como por ejemplo 
 -- "Between '01/01/2000' and '01/05/2000';"
 
 
@@ -168,11 +168,11 @@ Exists ( SELECT [RFC]
 FROM [Proveedores]
 WHERE RazonSocial LIKE 'La%' and [Entregan].[RFC] = [Proveedores].[RFC] )
 
---¿Qué hace la consulta?
+--ï¿½Quï¿½ hace la consulta?
 -- Muestra el RFC, cantidad, fecha y numero donde el rango del numero es 5000 y 5010 de la razon Social empieze con "La"
 
---¿Qué función tiene el paréntesis ( ) después de EXISTS?
--- Permite el espacio para hacer una subconsulta sin que haya errores de sintáxis con la consulta.
+--ï¿½Quï¿½ funciï¿½n tiene el parï¿½ntesis ( ) despuï¿½s de EXISTS?
+-- Permite el espacio para hacer una subconsulta sin que haya errores de sintï¿½xis con la consulta.
 
 --Tomando de base la consulta anterior del EXISTS, realiza el query que devuelva el mismo resultado, pero usando el operador IN
 SELECT RFC, Cantidad, Fecha, Numero
@@ -182,7 +182,7 @@ FROM Entregan, Proveedores
 WHERE RazonSocial LIKE 'La%' and Entregan.RFC = Proveedores.RFC)
 and Numero Between 5000 and 5010
 
---Realiza un ejemplo donde apliques algún operador : ALL, SOME o ANY.
+--Realiza un ejemplo donde apliques algï¿½n operador : ALL, SOME o ANY.
 select Fecha
 from Entregan
 where Numero = any (select Numero
@@ -191,16 +191,16 @@ where Denominacion like 'A%')
 order by Fecha
 
 
---¿Qué hace la siguiente sentencia? Explica por qué.
+--ï¿½Quï¿½ hace la siguiente sentencia? Explica por quï¿½.
 
 SELECT TOP 2 * FROM Proyectos
 -- Muestra las dos primeras filas de la tabla de Proyectos, porque el TOP recorre la tabla y devuelve las primeras filas que se le indican,
 -- en este caso 2.
 
---¿Qué sucede con la siguiente consulta? Explica por qué.
+--ï¿½Quï¿½ sucede con la siguiente consulta? Explica por quï¿½.
 SELECT TOP Numero FROM Proyectos
 
--- Marca un error de sintaxis, ya que no se le indica cuantas filas tiene que regresar, para que funcione, tendríamos que indicarlo así:
+-- Marca un error de sintaxis, ya que no se le indica cuantas filas tiene que regresar, para que funcione, tendrï¿½amos que indicarlo asï¿½:
 -- SELECT TOP 1 Numero FROM Proyectos
 
 
@@ -211,7 +211,7 @@ ALTER TABLE materiales ADD PorcentajeImpuesto NUMERIC(6,2);
 UPDATE materiales SET PorcentajeImpuesto = 2*clave/1000;
 select * from Materiales
 
---¿Qué consulta usarías para obtener el importe de las entregas es decir, el total en dinero de lo entregado, basado en la cantidad 
+--ï¿½Quï¿½ consulta usarï¿½as para obtener el importe de las entregas es decir, el total en dinero de lo entregado, basado en la cantidad 
 --de la entrega y el precio del material y el impuesto asignado?
 select Descripcion, sum(cantidad*(costo+PorcentajeImpuesto)) as 'total'
 from Materiales M, Entregan E
@@ -220,8 +220,8 @@ group by Descripcion
 
 
 
-/*	Creación de vistas	*/
---Comprueba lo anterior, creando vistas para cinco de las consultas que planteaste anteriormente en la práctica. 
+/*	Creaciï¿½n de vistas	*/
+--Comprueba lo anterior, creando vistas para cinco de las consultas que planteaste anteriormente en la prï¿½ctica. 
 --Posteriormente revisa cada vista creada para comprobar que devuelve el mismo resultado.
 
 /* 1)
@@ -306,7 +306,7 @@ where fecha<'01/01/01'
 
 /*		Ejericios		*/
 
- --Los materiales (clave y descripción) entregados al proyecto "México sin ti no estamos completos".
+ --Los materiales (clave y descripciï¿½n) entregados al proyecto "Mï¿½xico sin ti no estamos completos".
 
 select Materiales.clave, Materiales.descripcion 
 from Materiales, Entregan, Proyectos 
@@ -316,7 +316,7 @@ from Proyectos
 where Proyectos.denominacion = 'Mexico sin ti no estamos completos')
 
 
---Los materiales (clave y descripción) que han sido proporcionados por el proveedor "Acme tools".
+--Los materiales (clave y descripciï¿½n) que han sido proporcionados por el proveedor "Acme tools".
 
 select Materiales.clave, Materiales.descripcion 
 from Materiales, Entregan, Proyectos 
@@ -335,7 +335,7 @@ group by P.RFC
 having avg(300) >= 300
 
 
---El Total entregado por cada material en el año 2000.
+--El Total entregado por cada material en el aï¿½o 2000.
 
 select Descripcion, sum(Costo) as 'Total entregado'
 from Materiales M, Entregan E
@@ -343,7 +343,7 @@ where M.Clave = E.Clave and YEAR(E.fecha) = 2000
 group by Descripcion
 
 
---La Clave del material más vendido durante el 2001. (se recomienda usar una vista intermedia para su solución).
+--La Clave del material mï¿½s vendido durante el 2001. (se recomienda usar una vista intermedia para su soluciï¿½n).
 
 select top 1 Materiales.clave
 from Materiales, Entregan
@@ -353,13 +353,13 @@ from Entregan
 order by cantidad desc)
 
 
---Productos que contienen el patrón 'ub' en su nombre.
+--Productos que contienen el patrï¿½n 'ub' en su nombre.
 
 select * from Materiales 
 where Descripcion LIKE '%ub%'
 
 
---Denominación y suma del total a pagar para todos los proyectos.
+--Denominaciï¿½n y suma del total a pagar para todos los proyectos.
 
 select Denominacion, sum(Cantidad*(costo+PorcentajeImpuesto)) as 'total a pagar'
 from Proyectos P, Materiales M, Entregan E
@@ -367,8 +367,8 @@ where P.Numero = E.Numero and M.Clave = E.Clave
 group by Denominacion
 
 
---Denominación, RFC y RazonSocial de los proveedores que se suministran materiales al proyecto Televisa 
---en acción que no se encuentran apoyando al proyecto Educando en Coahuila (Solo usando vistas).
+--Denominaciï¿½n, RFC y RazonSocial de los proveedores que se suministran materiales al proyecto Televisa 
+--en acciï¿½n que no se encuentran apoyando al proyecto Educando en Coahuila (Solo usando vistas).
 
 create view Coahuila(Denominacion,RFC,RazonSocial)
 as select PR.Denominacion, P.RFC, P.RazonSocial
@@ -380,7 +380,7 @@ create view Televisa(Denominacion, RFC, RazonSocial)
 as select PR.Denominacion, P.RFC, P.RazonSocial
 from Proveedores P, Proyectos PR, Entregan E, Materiales M
 where E.RFC = P.RFC and E.Numero = PR.Numero and M.Clave = E.Clave
-and PR.Denominacion = 'Televisa en acción'
+and PR.Denominacion = 'Televisa en acciï¿½n'
 
 select T.Denominacion, T.RFC, T.RazonSocial
 from Televisa T
@@ -389,13 +389,13 @@ on T.RFC = C.RFC
 where C.RFC is null
 
 
---Denominación, RFC y RazonSocial de los proveedores que se suministran materiales al proyecto Televisa en acción 
+--Denominaciï¿½n, RFC y RazonSocial de los proveedores que se suministran materiales al proyecto Televisa en acciï¿½n 
 --que no se encuentran apoyando al proyecto Educando en Coahuila (Sin usar vistas, utiliza not in, in o exists).
  
 select Denominacion, P.RFC, RazonSocial
 from Proveedores P, Proyectos PR, Entregan E, Materiales M
 where E.RFC = P.RFC and E.Numero = PR.Numero and M.Clave = E.Clave
-and Denominacion = 'Televisa en acción'
+and Denominacion = 'Televisa en acciï¿½n'
 and P.RFC not in (select P.RFC
 from Proveedores P, Proyectos PR, Entregan E
 where E.RFC = P.RFC and E.Numero = PR.Numero
@@ -403,13 +403,13 @@ and Denominacion = 'Educando en Coahuila')
 order by RFC desc
 
 
---Costo de los materiales y los Materiales que son entregados al proyecto Televisa en acción cuyos proveedores 
---también suministran materiales al proyecto Educando en Coahuila.
+--Costo de los materiales y los Materiales que son entregados al proyecto Televisa en acciï¿½n cuyos proveedores 
+--tambiï¿½n suministran materiales al proyecto Educando en Coahuila.
 
 select  M.Costo, M.Descripcion
 from Proveedores P, Proyectos PR, Entregan E, Materiales M
 where E.RFC = P.RFC and E.Numero = PR.Numero and M.Clave = E.Clave
-and Denominacion = 'Televisa en acción'
+and Denominacion = 'Televisa en acciï¿½n'
 and P.RFC in (select P.RFC
 from Proveedores P, Proyectos PR, Entregan E
 where E.RFC = P.RFC and E.Numero = PR.Numero

@@ -1,4 +1,4 @@
-			--Ejercicio 1--
+			-- Ejercicio 1 --
 drop TABLE Entregan
 drop TABLE Materiales
 drop TABLE proyectos
@@ -72,7 +72,7 @@ BULK INSERT a1706202.a1706202.[Entregan]
  
 
 			
-			--Ejercicio 2--
+			-- Ejercicio 2--
 INSERT INTO Materiales values(1000, 'xxx', 1000)
 
 Delete from Materiales where Clave = 1000 and Costo = 1000
@@ -91,7 +91,7 @@ sp_helpconstraint Entregan
 
 
 
-			--Ejercicio 3--
+			-- Ejercicio 3--
 SELECT  * FROM Materiales
 SELECT  * FROM Proveedores
 SELECT  * FROM Proyectos
@@ -113,7 +113,7 @@ ALTER TABLE entregan add constraint cfentregannumero
 sp_helpconstraint Entregan
 
 
-			--Ejercicio 4--
+			-- Ejercicio 4--
 INSERT INTO entregan values (1000, 'AAAA800101', 5000, GETDATE(), 0);
 
 Delete from Entregan where Cantidad = 0
