@@ -367,6 +367,16 @@ exists(select top 1 Cantidad
 from Entregan
 order by cantidad desc)
 
+/* En MySQL */
+select Materiales.clave 
+from Materiales, Entregan 
+where YEAR(Entregan.Fecha) = 2001 and 
+exists(select Cantidad 
+from Entregan 
+order by cantidad desc 
+limit 1) 
+limit 1
+
 
 -- Productos que contienen el patrón 'ub' en su nombre.
 
