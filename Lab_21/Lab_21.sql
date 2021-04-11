@@ -8,7 +8,7 @@ Entregan(Clave, RFC, Numero, Fecha, Cantidad)
 
 /* 1) La suma de las cantidades e importe total de todas las entregas realizadas durante el 97. */
 
---Producto 15 pesos		impuesto 10% ->  15 + 15 * .1
+-- Producto 15 pesos		impuesto 10% ->  15 + 15 * .1
 
 select sum(Cantidad) as 'Suma de cantidades', sum(Cantidad * (Precio + Precio * PorcentajeImpuesto/100)) as 'Ingresos totales'
 from Entregan E, Materiales M
@@ -71,11 +71,11 @@ Considerando que los valores de tipos CHAR y VARCHAR deben ir encerrados entre a
 se escriben directamente y los de fecha, como '1-JAN-00' para 1o. de enero del 2000, inserta cinco nuevos materiales.
 */
 
-insert into Materiales values (1440, 'Piedra', 250, 2.88);
-insert into Materiales values (1450, 'Hormigón', 300, 2.9);
-insert into Materiales values (1460, 'Yeso', 70, 2.92);
-insert into Materiales values (1470, 'Madera', 150, 2.94);
-insert into Materiales values (1480, 'Vidrio', 200, 2.96);
+insert into Materiales values (1440, 'Piedra', 250, 25, 2.88);
+insert into Materiales values (1450, 'Hormigón', 300, 30, 2.9);
+insert into Materiales values (1460, 'Yeso', 70, 7, 2.92);
+insert into Materiales values (1470, 'Madera', 150, 15, 2.94);
+insert into Materiales values (1480, 'Vidrio', 200, 20, 2.96);
 
 
 /*	Parte 3 - Consultas con roles y subconsultas	*/
