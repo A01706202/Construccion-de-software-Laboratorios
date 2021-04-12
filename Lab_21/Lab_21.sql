@@ -104,14 +104,40 @@ where M.Clave = E.Clave
 and P.Numero = E.Numero
 and Denominacion not in (select Denominacion
 from Materiales M, Entregan E, Proyectos P
-where M.Clave = E.Clave
-and P.Numero = E.Numero
+where P.Numero = E.Numero
 and Denominacion = 'CIT Yucatan')
 
 
 /* 4) Razón social y promedio de cantidad entregada de los proveedores cuyo promedio de cantidad entregada es mayor 
 al promedio de la cantidad entregada por el proveedor con el RFC 'VAGO780901'. */
 
+select RazonSocial, avg(Cantidad) as 'Promedio Cantidad'
+from Proveedores, Entregan
+where Proveedores.RFC = Entregan.RFC
+group by RazonSocial
+having avg(Cantidad) > (select avg(Cantidad) 
+from Entregan
+where RFC = 'VAGO780901')
+
 
 /* 5) RFC, razón social de los proveedores que participaron en el proyecto 'Infonavit Durango' y cuyas cantidades 
 totales entregadas en el 2000 fueron mayores a las cantidades totales entregadas en el 2001. */
+
+create view Consulta_2000 as select PR.RFC, RazonSocial, SUM(cantidad) as 'Cantidad total 2000'
+from Proyectos P, Proveedores PR, Entregan E
+where P.Numero = E.Numero and PR.RFC = E.RFC 
+and year(fecha) = 2000 
+and Denominacion = 'Infonavit Durango'
+group by RazonSocial, PR.RFC
+
+create view Consulta_2001 as select PR.RFC, RazonSocial, SUM(cantidad) as 'Cantidad total 2001'
+from Proyectos P, Proveedores PR, Entregan E
+where P.Numero = E.Numero and PR.RFC = E.RFC 
+and year(fecha) = 2001 
+and Denominacion = 'Infonavit Durango'
+group by RazonSocial, PR.RFC
+
+select C0.RFC, C0.RazonSocial 
+from Consulta_2000 C0, Consulta_2001 C1
+where C0.RFC = C1.RFC 
+and 'Cantidad total 2000' > 'Cantidad total 2001'
