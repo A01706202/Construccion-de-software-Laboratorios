@@ -1,20 +1,5 @@
 const Personaje = require('../models/personaje');
 
-exports.getPersonaje = (request, response, next) => {
-        const id = request.params.personaje_id;
-        Personaje.fetchOne(id)
-            .then(([rows, fieldData]) => {
-                response.render('personaje-especifico', { 
-                    titulo: "Personaje específico",
-                    historial_personajes: rows,
-                    isLoggedIn: request.session.isLoggedIn === true ? true : false
-                });
-            })
-            .catch(err => {
-                console.log(err);
-            });
-};
-
 exports.getNuevoPersonaje = (request, response, next) => {
     response.render('mandar_personaje',{
         csrfToken: request.csrfToken(),

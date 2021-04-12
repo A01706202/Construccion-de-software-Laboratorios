@@ -47,7 +47,7 @@
         console.log(valor_busqueda);
 
         //función que manda la petición asíncrona
-        fetch('personajes/buscar', {
+        fetch('/personajes/buscar', {
             method: 'POST',
             body: JSON.stringify(data),
             headers: {

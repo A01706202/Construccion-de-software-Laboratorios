@@ -10,8 +10,6 @@ router.get('/mandar-personaje', isAuth, personajesController.getNuevoPersonaje);
 
 router.post('/mandar-personaje', isAuth, personajesController.postNuevoPersonaje);
 
-router.get('/:personaje_id', isAuth, personajesController.getPersonaje);
-
 router.get('/', isAuth, personajesController.getPersonajesEnviados);
 
 module.exports = router;
