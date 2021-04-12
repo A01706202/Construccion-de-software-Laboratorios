@@ -90,10 +90,14 @@ where M.Clave not in (select Clave from Entregan)
 /* 2) Razón social de los proveedores que han realizado entregas tanto al proyecto 'Vamos México' como al proyecto 
 'Querétaro Limpio'. */
 
-select RazonSocial
-from Proveedores P, Proyectos PR, Entregan E
-where E.Numero = PR.Numero and E.RFC = P.RFC
-and Denominacion = 'Vamos México'
+select DISTINCT RazonSocial 
+from Proveedores P, Proyectos PR, Entregan E 
+where E.Numero = PR.Numero and E.RFC = P.RFC 
+and Denominacion = 'Vamos México' 
+and RazonSocial in (select RazonSocial 
+from Proveedores P, Proyectos PR, Entregan E 
+where E.Numero = PR.Numero and E.RFC = P.RFC 
+and Denominacion = 'Querétaro Limpio')
 
 
 /* 3) Descripción de los materiales que nunca han sido entregados al proyecto 'CIT Yucatán'. */
