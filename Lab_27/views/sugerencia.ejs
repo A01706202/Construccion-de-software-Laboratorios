@@ -1,0 +1,18 @@
+<%- include('partials/head.ejs') %>
+        
+            <% if (isLoggedIn) { %>
+                <% if (historial_sugerencias.length > 0) { %>
+                    
+                        <% for (let opinion of historial_sugerencias) { %>
+                            <li><%= opinion.recomendacion %></li><br>
+                        <% } %>
+                    
+                <% } else { %>
+                    <h3>No hay sugerencias</h3>
+                <% } %>
+                <br><br><strong>Sugerencias totales: </strong> <%= total %>
+                <% } else { %>
+                    Registrese <a href="../users/login">aquí</a> para acceder a este contenido.
+                    <% } %>
+        
+<%- include('partials/footer.ejs') %>

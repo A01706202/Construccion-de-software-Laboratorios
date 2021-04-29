@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="es"> 
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width-device-with, initial-scale=1.0">
+        
+        <link href="/css/bulma.min.css" rel="stylesheet"> 
+        <link href="css/bulma-rtl.min.css" rel="stylesheet">
+        <link href="/css/main.css" rel="stylesheet">
+            
+    </head>
+    <body background="https://static.vecteezy.com/system/resources/previews/000/273/888/original/abstract-pastel-background-vector.jpg">
+        <main>
+        <% if (isLoggedIn) { %>
+            <a href="/users/logout">Salir</a>
+        <% } else { %>
+            <a href="/users/login">Iniciar sesión</a>  ||  <a href="/users/register">Registrarse</a>
+        <% } %>
+            
+        
